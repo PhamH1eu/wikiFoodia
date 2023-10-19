@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "553263434467",
+    "project_id": "wikifoodia-1781b",
+    "storage_bucket": "wikifoodia-1781b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:553263434467:android:16d9d4493616f0643893d6",
+        "android_client_info": {
+          "package_name": "com.example.wikifoodia"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdLqdfCsREAdsaeUjx3IgvMnNKcw_CyrY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
