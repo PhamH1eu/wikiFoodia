@@ -24,13 +24,26 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xfff97350),
       body: Center(
-        child: Text(
-          'Splash Screen',
-          style: TextStyle(
-            color: Colors.blue,
-            fontWeight: FontWeight.bold,
-          ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset('assets/images/pho.png', height: 300),
+            SizedBox(
+              height: 50,
+            ),
+            Text(
+              'wikiFoodia',
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Pacifico',
+                fontSize: 60,
+              ),
+            ),
+            
+          ],
         ),
       ),
     );
