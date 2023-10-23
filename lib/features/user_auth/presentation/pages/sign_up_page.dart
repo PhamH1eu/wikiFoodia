@@ -31,13 +31,11 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Login'),
-      ),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15),
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+            Image.asset('assets/images/pho.png', height: 150),
             Text('Sign Up',
                 style: TextStyle(fontSize: 27, fontWeight: FontWeight.bold)),
             SizedBox(
@@ -73,7 +71,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 width: double.infinity,
                 height: 45,
                 decoration: BoxDecoration(
-                  color: Colors.blue,
+                  color: Color(0xfff97350),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Center(
@@ -103,7 +101,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   child: Text(
                     "Login",
                     style: (TextStyle(
-                        color: Colors.blue, fontWeight: FontWeight.bold)),
+                        color: Color(0xfff97350), fontWeight: FontWeight.bold)),
                   ),
                 )
               ],

@@ -43,7 +43,7 @@ class _FormContainerWidgetState extends State<FormContainerWidget> {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Colors.grey.withOpacity(.35),
+        color: Colors.grey.withOpacity(.1),
         borderRadius: BorderRadius.circular(10),
       ),
       child: TextFormField(
@@ -58,6 +58,11 @@ class _FormContainerWidgetState extends State<FormContainerWidget> {
         decoration: InputDecoration(
           border: InputBorder.none,
           filled: true,
+          fillColor: Colors.transparent,
+          focusedBorder:OutlineInputBorder(
+            borderSide: const BorderSide(color: Color(0xfff97350), width: 2.0),
+            borderRadius: BorderRadius.all(Radius.circular(8)),
+          ),
           hintText: widget.hintText,
           hintStyle: TextStyle(color: Colors.black45),
           suffixIcon: GestureDetector(
@@ -67,7 +72,7 @@ class _FormContainerWidgetState extends State<FormContainerWidget> {
               });
             },
             child:
-            widget.isPasswordField==true? Icon(_obscureText ? Icons.visibility_off : Icons.visibility, color: _obscureText == false ? Colors.blue : Colors.grey,) : Text(""),
+            widget.isPasswordField==true? Icon(_obscureText ? Icons.visibility_off : Icons.visibility, color: _obscureText == false ? Color(0xfff97350) : Colors.grey,) : Text(""),
           ),
         ),
       ),
