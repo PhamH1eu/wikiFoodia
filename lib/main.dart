@@ -1,8 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:provider/provider.dart';
 import 'package:wikifoodia/features/app/splash_screen/splash_screen.dart';
 import 'package:wikifoodia/features/user_auth/presentation/pages/login_page.dart';
+import 'features/user_auth/firebase_auth_implementation/google_auth_services.dart';
 import 'firebase_options.dart';
 import 'features/user_auth/presentation/pages/home_page.dart';
 import 'features/user_auth/presentation/pages/sign_up_page.dart';
@@ -32,8 +34,9 @@ class MyApp extends StatelessWidget {
 
   // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
+  Widget build(BuildContext context) => ChangeNotifierProvider(
+    create: (context) => GoogleSignInProvider(),
+    child: MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'wikiFoodia',
       routes: {
@@ -45,6 +48,6 @@ class MyApp extends StatelessWidget {
         '/signUp': (context) => SignUpPage(),
         '/home': (context) => HomePage(),
       },
-    );
-  }
+    ),
+  );
 }

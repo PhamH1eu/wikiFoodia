@@ -12,7 +12,12 @@
           "package_name": "com.example.wikifoodia"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "553263434467-k2b1n7ggni0fpgdrrcic97h2p3hr43sa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAdLqdfCsREAdsaeUjx3IgvMnNKcw_CyrY"
@@ -20,7 +25,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "553263434467-k2b1n7ggni0fpgdrrcic97h2p3hr43sa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
