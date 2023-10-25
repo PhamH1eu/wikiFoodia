@@ -1,10 +1,10 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:flutter/material.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:wikifoodia/features/app/flash_message.dart';
 import 'package:wikifoodia/features/user_auth/firebase_auth_implementation/firebase_auth_services.dart';
 import 'package:wikifoodia/features/user_auth/firebase_auth_implementation/google_auth_services.dart';
 import 'sign_up_page.dart';
@@ -183,12 +183,20 @@ class _LoginPageState extends State<LoginPage> {
     String email = _emailController.text.trim();
     String password = _passwordController.text.trim();
 
-    User? user = await _auth.signInWithEmailAndPassword(email, password);
-    if (user != null) {
-      print("User is successfully created");
-      Navigator.pushNamed(context, "/home");
+    if (email.isEmpty) {
+      FlashMessage.showMySnackBar(context, "Email is required");
+    } else if (password.isEmpty) {
+      FlashMessage.showMySnackBar(context, "Password is required");
     } else {
-      print("error");
+      await _auth.signInWithEmailAndPassword(email, password);
+      if (context.mounted) {
+        if (FirebaseAuth.instance.currentUser != null) {
+          Navigator.pushNamed(context, "/home");
+        } else {
+          FlashMessage.showMySnackBar(
+              context, FirebaseAuthService.errorMessage);
+        }
+      }
     }
   }
 }
