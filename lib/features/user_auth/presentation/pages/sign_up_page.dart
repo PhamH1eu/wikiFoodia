@@ -2,10 +2,13 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:wikifoodia/features/app/flash_message.dart';
-import 'package:wikifoodia/features/user_auth/firebase_auth_implementation/firebase_auth_services.dart';
-import 'package:wikifoodia/features/user_auth/presentation/pages/login_page.dart';
-import 'package:wikifoodia/features/user_auth/presentation/widgets/form_container_widget.dart';
+
+import '../../../app/flash_message.dart';
+import '../../firebase_auth_implementation/firebase_auth_services.dart';
+import '../widgets/form_container_widget.dart';
+
+import 'login_page.dart';
+
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
