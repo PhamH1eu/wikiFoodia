@@ -2,12 +2,16 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
-import 'package:wikifoodia/features/app/splash_screen/splash_screen.dart';
-import 'package:wikifoodia/features/user_auth/presentation/pages/login_page.dart';
+
+import 'features/user_auth/presentation/pages/login_page.dart';
 import 'features/user_auth/firebase_auth_implementation/google_auth_services.dart';
-import 'firebase_options.dart';
 import 'features/user_auth/presentation/pages/home_page.dart';
 import 'features/user_auth/presentation/pages/sign_up_page.dart';
+import 'features/user_auth/presentation/pages/main_page.dart';
+import 'features/app/splash_screen/splash_screen.dart';
+
+import 'firebase_options.dart';
+
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -47,6 +51,7 @@ class MyApp extends StatelessWidget {
         '/login': (context) => LoginPage(),
         '/signUp': (context) => SignUpPage(),
         '/home': (context) => HomePage(),
+        '/main': (context) => MainPage(),
       },
     ),
   );

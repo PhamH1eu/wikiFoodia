@@ -1,14 +1,15 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 import 'package:flutter/material.dart';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
-import 'package:wikifoodia/features/app/flash_message.dart';
-import 'package:wikifoodia/features/user_auth/firebase_auth_implementation/firebase_auth_services.dart';
-import 'package:wikifoodia/features/user_auth/firebase_auth_implementation/google_auth_services.dart';
-import 'sign_up_page.dart';
+
+import '../../../app/flash_message.dart';
+import '../../firebase_auth_implementation/firebase_auth_services.dart';
+import '../../firebase_auth_implementation/google_auth_services.dart';
 import '../widgets/form_container_widget.dart';
+
+import 'sign_up_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -135,11 +136,8 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                               label: Text('Sign in with Google'),
                               onPressed: () {
-                                final provider =
-                                    Provider.of<GoogleSignInProvider>(context,
-                                        listen: false);
-                                provider.googleLogin();
-                                Navigator.pushNamed(context, "/home");
+                                final provider = Provider.of<GoogleSignInProvider>(context, listen: false);
+                                provider.googleLogin().then((value) => Navigator.pushNamed(context, "/home"));
                               },
                             ),
                           ],
