@@ -61,7 +61,7 @@ class _LoginPageState extends State<LoginPage> {
                           isPasswordField: false,
                         ),
                         SizedBox(
-                          height: 10,
+                          height: 30,
                         ),
                         FormContainerWidget(
                           controller: _passwordController,
@@ -69,7 +69,7 @@ class _LoginPageState extends State<LoginPage> {
                           isPasswordField: true,
                         ),
                         SizedBox(
-                          height: 30,
+                          height: 10,
                         ),
                         GestureDetector(
                           onTap: _signIn,

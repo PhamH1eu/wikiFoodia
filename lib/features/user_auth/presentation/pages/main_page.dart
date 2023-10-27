@@ -24,57 +24,137 @@ class _MainPageState extends State<MainPage> {
                 child: CircularProgressIndicator(),
               );
             } else if (snapshot.hasData) {
-              return Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Center(
+              return SingleChildScrollView(
+                  child: Padding(padding: const EdgeInsets.symmetric(vertical: 20),
+                  child: Column(
+                    children: [
+                      const SizedBox(
+                        height: 46,
+                      ),
+                      Padding(padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Delivering to",
+                                      style:
+                                      TextStyle( fontSize: 15),
+                                    ),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    Image.asset(
+                                      "assets/images/dropdown.png",
+                                      width: 30,
+                                      height: 30,
+                                    ),
+                                    const SizedBox(
+                                      height: 6,
+                                    ),
+                                  ],
+                                ),
+
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Current Location",
+                                      style: TextStyle(
+                                          color: Color(0xfff97350),
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w700),
+                                    ),
+                                    const SizedBox(
+                                      width: 25,
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
+                            IconButton(onPressed: () {}
+                                , icon: Image.asset("assets/images/img.png",
+                                  width: 30,
+                                  height: 30,
+                                )
+                            )
+                          ],
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 20),
                         child: Text(
-                      "Welcome Home bro!",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 19),
-                    )),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        FirebaseAuth.instance.signOut();
-                      },
-                      child: Container(
-                        height: 45,
-                        width: 100,
-                        decoration: BoxDecoration(
-                            color: Colors.blue,
-                            borderRadius: BorderRadius.circular(10)),
-                        child: Container(
-                            height: 45,
-                            width: 100,
-                            decoration: BoxDecoration(
-                                color: Colors.blue,
-                                borderRadius: BorderRadius.circular(10)),
-                            child: TextButton(
-                              child: Center(
-                                child: Text(
-                                  "Sign out",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18),
+                          "What would you like to order",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontFamily: 'Trajan Pro',
+                            fontSize: 40,
+                            fontWeight: FontWeight.w900,
+                          ),
+                          textAlign: TextAlign.left,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.grey[200],
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: TextField(
+                                  decoration: InputDecoration(
+                                    hintText: "Find your food or restaurant...",
+                                    prefixIcon: Container(
+                                      alignment: Alignment.center,
+                                      width: 30,
+                                      child: Image.asset(
+                                        "assets/images/search.png",
+                                        width: 35,
+                                        height: 35,
+                                      ),
+                                    ),
+                                    border: InputBorder.none,
+                                  ),
                                 ),
                               ),
-                              onPressed: () {
-                                final provider =
-                                    Provider.of<GoogleSignInProvider>(context,
-                                        listen: false);
-                                provider.googleLogout();
-                                Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => LoginPage()), (route) => false);
-                              },
-                            )),
-                      ),
-                    )
-                  ],
-                ),
+                            ),
+                            SizedBox(width: 30),
+                            Container(
+                              width: 40,
+                              height: 40,
+                              decoration: BoxDecoration(
+                                color: Colors.grey[300],
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: IconButton(
+                                icon: Icon(Icons.filter_list),
+                                onPressed: () {
+                                  // Xử lý sự kiện khi nhấn vào nút lọc
+                                },
+                              ),
+                            ),
+                          ],
+                        ),
+                      )
+
+                    //  Note: ma thanh thien dep trai da code den doan nay
+                    ],
+                  ),
+                  ),
               );
             } else if (snapshot.hasError) {
               return Center(
