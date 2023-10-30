@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../firebase_auth_implementation/google_auth_services.dart';
+import '../widgets/category_cell.dart';
 import 'login_page.dart';
 
 class MainPage extends StatefulWidget {
@@ -13,6 +14,13 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  List catArr = [
+    {"image": "assets/images/img_mini_pancake.png", "name": "Pan Cake"},
+    {"image": "assets/images/pho.png", "name": "Pho"},
+    {"image": "assets/images/avarta_flutter.jpg", "name": "Pan Cake"},
+    {"image": "assets/images/img_mini_pancake.png", "name": "Pan Cake"},
+    {"image": "assets/images/img_mini_pancake.png", "name": "Pan Cake"},
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -137,7 +145,7 @@ class _MainPageState extends State<MainPage> {
                               width: 40,
                               height: 40,
                               decoration: BoxDecoration(
-                                color: Colors.grey[300],
+                                color: Color(0xFFECEFF1),
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               child: IconButton(
@@ -149,8 +157,27 @@ class _MainPageState extends State<MainPage> {
                             ),
                           ],
                         ),
-                      )
-
+                      ),
+                      const SizedBox(
+                        height: 12,
+                      ),
+                      SizedBox(
+                        height: 120,
+                        child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          padding: const EdgeInsets.symmetric(horizontal: 15),
+                          itemCount: catArr.length,
+                          itemBuilder: ((context, index) {
+                            var cObj = catArr[index] as Map? ?? {};
+                            return CategoryCell(
+                              cObj: cObj,
+                              onTap: () {
+                              },
+                              isSelected: false,
+                            );
+                          }),
+                        ),
+                      ),
                     //  Note: ma thanh thien dep trai da code den doan nay
                     ],
                   ),
