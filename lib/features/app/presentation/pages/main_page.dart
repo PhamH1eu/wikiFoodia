@@ -148,6 +148,27 @@ class _MainPageState extends State<MainPage> {
                           ],
                         ),
                       )
+=======
+                      ),
+                      const SizedBox(
+                        height: 12,
+                      ),
+                      SizedBox(
+                        height: 120,
+                        child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          padding: const EdgeInsets.symmetric(horizontal: 15),
+                          itemCount: catArr.length,
+                          itemBuilder: ((context, index) {
+                            var cObj = catArr[index] as Map? ?? {};
+                            return CategoryCell(
+                              index: index,
+                              cObj: cObj,
+                              onTap: () {
+                                indexSelected = index;
+                                reload();
+                                }
+                            );
 
                     //  Note: ma thanh thien dep trai da code den doan nay
                     ],
