@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../pages/main_page.dart';
 import 'color_extension.dart';
 int indexSelected = 0;
 

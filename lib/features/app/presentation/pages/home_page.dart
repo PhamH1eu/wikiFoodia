@@ -19,7 +19,6 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       _selectedIndex = index;
     });
-    print(_pages.elementAt(_selectedIndex));
   }
 
   final Set<StatefulWidget> _pages = {

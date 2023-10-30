@@ -1,8 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-import '../../firebase_auth_implementation/google_auth_services.dart';
 import '../widgets/category_cell.dart';
 import 'login_page.dart';
 
@@ -25,7 +23,6 @@ class _MainPageState extends State<MainPage> {
   ];
 
   void reload() {
-    print('hihih');
     setState(() {
     });
   }
@@ -79,7 +76,7 @@ class _MainPageState extends State<MainPage> {
 
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
+                                  children: const [
                                     Text(
                                       "Current Location",
                                       style: TextStyle(
@@ -87,7 +84,7 @@ class _MainPageState extends State<MainPage> {
                                           fontSize: 16,
                                           fontWeight: FontWeight.w700),
                                     ),
-                                    const SizedBox(
+                                    SizedBox(
                                       width: 25,
                                     ),
                                   ],

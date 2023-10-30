@@ -3,15 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
 
-import 'features/user_auth/presentation/pages/login_page.dart';
+import 'features/app/presentation/pages/login_page.dart';
 import 'features/user_auth/firebase_auth_implementation/google_auth_services.dart';
-import 'features/user_auth/presentation/pages/home_page.dart';
-import 'features/user_auth/presentation/pages/sign_up_page.dart';
-import 'features/user_auth/presentation/pages/main_page.dart';
+import 'features/app/presentation/pages/home_page.dart';
+import 'features/app/presentation/pages/sign_up_page.dart';
+import 'features/app/presentation/pages/main_page.dart';
 import 'features/app/splash_screen/splash_screen.dart';
 
 import 'firebase_options.dart';
-
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
