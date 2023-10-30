@@ -182,6 +182,8 @@ class _MainPageState extends State<MainPage> {
                               index: index,
                               cObj: cObj,
                               onTap: () {
+                                indexSelected = index;
+                                reload();
                                 }
                             );
 

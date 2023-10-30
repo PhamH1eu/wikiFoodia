@@ -23,11 +23,7 @@ class _CategoryCell extends State<CategoryCell> {
       margin: const EdgeInsets.symmetric(horizontal: 8),
       color: indexSelected == widget.index ? Colors.orange : Colors.grey[100],
       child: InkWell(
-        onTap: () {
-            setState(() {
-              indexSelected = widget.index;
-          });
-        },
+        onTap: widget.onTap,
         child: Column(
           children: [
             ClipRRect(
