@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../pages/main_page.dart';
 import 'color_extension.dart';
-
+int indexSelected = 0;
 
 class CategoryCell extends StatefulWidget {
   final int index;
@@ -15,7 +16,7 @@ class CategoryCell extends StatefulWidget {
 }
 
 class _CategoryCell extends State<CategoryCell> {
-  int indexSelected = 0;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -25,7 +26,7 @@ class _CategoryCell extends State<CategoryCell> {
         onTap: () {
             setState(() {
               indexSelected = widget.index;
-            });
+          });
         },
         child: Column(
           children: [
