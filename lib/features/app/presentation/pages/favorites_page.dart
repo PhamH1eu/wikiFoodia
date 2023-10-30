@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wikifoodia/features/user_auth/presentation/widgets/food_card.dart';
+import 'package:wikifoodia/features/app/presentation/widgets/food_card.dart';
 
 class FavoritesPage extends StatefulWidget {
   const FavoritesPage({Key? key}) : super(key: key);

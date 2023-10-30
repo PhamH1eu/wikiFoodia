@@ -5,8 +5,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
 import '../widgets/flash_message.dart';
-import '../../firebase_auth_implementation/firebase_auth_services.dart';
-import '../../firebase_auth_implementation/google_auth_services.dart';
+import '../../../user_auth/firebase_auth_implementation/firebase_auth_services.dart';
+import '../../../user_auth/firebase_auth_implementation/google_auth_services.dart';
 import '../widgets/form_container_widget.dart';
 
 import 'sign_up_page.dart';

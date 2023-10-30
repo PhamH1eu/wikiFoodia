@@ -4,7 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/flash_message.dart';
-import '../../firebase_auth_implementation/firebase_auth_services.dart';
+import '../../../user_auth/firebase_auth_implementation/firebase_auth_services.dart';
 import '../widgets/form_container_widget.dart';
 
 import 'login_page.dart';
