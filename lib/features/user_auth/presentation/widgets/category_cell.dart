@@ -3,44 +3,51 @@ import 'package:flutter/material.dart';
 import 'color_extension.dart';
 
 
-class CategoryCell extends StatelessWidget {
-  final bool isSelected;
+class CategoryCell extends StatefulWidget {
+  final int index;
   final Map cObj;
   final VoidCallback onTap;
-  const CategoryCell({super.key, required this.cObj, required this.onTap,required this.isSelected });
+  const CategoryCell({super.key, required this.index, required this.cObj, required this.onTap });
 
+
+  @override
+  State<CategoryCell> createState() => _CategoryCell();
+}
+
+class _CategoryCell extends State<CategoryCell> {
+  int indexSelected = 0;
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.orange,
       margin: const EdgeInsets.symmetric(horizontal: 8),
+      color: indexSelected == widget.index ? Colors.orange : Colors.grey[100],
       child: InkWell(
-        onTap: onTap,
+        onTap: () {
+            setState(() {
+              indexSelected = widget.index;
+            });
+        },
         child: Column(
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(60),
               child: Image.asset(
-                cObj["image"].toString(),
+                widget.cObj["image"].toString(),
                 width: 85,
                 height: 85,
-                fit: BoxFit.cover,
+                fit: BoxFit.contain,
               ),
             ),
             const SizedBox(
               height: 8,
             ),
-            FittedBox(
-              fit: BoxFit.scaleDown,
-              child: Text(
-                cObj["name"],
-                textAlign: TextAlign.center,
-                style: TextStyle(
+            Text(
+              widget.cObj["name"],
+              textAlign: TextAlign.center,
+              style: TextStyle(
                   color: TColor.primaryText,
                   fontSize: 14,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
+                  fontWeight: FontWeight.w700),
             ),
           ],
         ),

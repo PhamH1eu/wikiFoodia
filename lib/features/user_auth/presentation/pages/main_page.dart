@@ -170,10 +170,9 @@ class _MainPageState extends State<MainPage> {
                           itemBuilder: ((context, index) {
                             var cObj = catArr[index] as Map? ?? {};
                             return CategoryCell(
+                              index: index,
                               cObj: cObj,
-                              onTap: () {
-                              },
-                              isSelected: false,
+                              onTap: () {}
                             );
                           }),
                         ),
