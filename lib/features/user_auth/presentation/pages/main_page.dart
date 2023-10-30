@@ -6,6 +6,8 @@ import '../../firebase_auth_implementation/google_auth_services.dart';
 import '../widgets/category_cell.dart';
 import 'login_page.dart';
 
+
+
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
 
@@ -21,6 +23,13 @@ class _MainPageState extends State<MainPage> {
     {"image": "assets/images/img_mini_pancake.png", "name": "Pan Cake"},
     {"image": "assets/images/img_mini_pancake.png", "name": "Pan Cake"},
   ];
+
+  void reload() {
+    print('hihih');
+    setState(() {
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -172,8 +181,10 @@ class _MainPageState extends State<MainPage> {
                             return CategoryCell(
                               index: index,
                               cObj: cObj,
-                              onTap: () {}
+                              onTap: () {
+                                }
                             );
+
                           }),
                         ),
                       ),
