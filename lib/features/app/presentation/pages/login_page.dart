@@ -137,7 +137,9 @@ class _LoginPageState extends State<LoginPage> {
                               label: Text('Sign in with Google'),
                               onPressed: () {
                                 final provider = Provider.of<GoogleSignInProvider>(context, listen: false);
-                                provider.googleLogin().then((value) => Navigator.pushNamed(context, "/home"));
+                                provider.googleLogin().then((value) => 
+                                    Navigator.pushNamed(context, "/home")
+                                );
                               },
                             ),
                           ],
