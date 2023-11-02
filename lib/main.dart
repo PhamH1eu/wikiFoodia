@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
+import 'package:wikifoodia/features/app/presentation/pages/FavoritePages/favorite_provider.dart';
 
 import 'features/app/presentation/pages/login_page.dart';
 import 'features/user_auth/firebase_auth_implementation/google_auth_services.dart';
@@ -37,8 +38,15 @@ class MyApp extends StatelessWidget {
 
   // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) => ChangeNotifierProvider(
-    create: (context) => GoogleSignInProvider(),
+  Widget build(BuildContext context) => MultiProvider(
+    providers: [
+      ChangeNotifierProvider<FavoriteProvider>(
+        create: (context) => FavoriteProvider(),
+      ),
+      ChangeNotifierProvider<GoogleSignInProvider>(
+        create: (context) => GoogleSignInProvider(),
+      ),
+    ],
     child: MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'wikiFoodia',
