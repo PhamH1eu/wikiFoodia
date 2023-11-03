@@ -20,7 +20,10 @@ class _CategoryCell extends State<CategoryCell> {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 8),
-      color: indexSelected == widget.index ? Colors.orange : Colors.grey[100],
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20), // Giá trị radius mong muốn
+        color: indexSelected == widget.index ? Colors.orange : Colors.grey[100],
+      ),
       child: InkWell(
         onTap: widget.onTap,
         child: Column(
@@ -31,7 +34,7 @@ class _CategoryCell extends State<CategoryCell> {
                 widget.cObj["image"].toString(),
                 width: 85,
                 height: 85,
-                fit: BoxFit.contain,
+                fit: BoxFit.fitWidth,
               ),
             ),
             const SizedBox(

@@ -2,7 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/category_cell.dart';
+import '../widgets/color_extension.dart';
 import '../widgets/popular_restaurant.dart';
+import '../widgets/recent_food.dart';
 import 'login_page.dart';
 
 
@@ -16,16 +18,19 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   List catArr = [
-    {"image": "assets/images/icon/banhcuon.png", "name": "Bánh Cuốn"},
-    {"image": "assets/images/icon/goicuon2.png", "name": "Gỏi Cuốn"},
-    {"image": "assets/images/comtam.jpg", "name": "Com Tam"},
-    {"image": "assets/images/icon/banhmi2.png", "name": "Bánh Mì"},
-    {"image": "assets/images/banhxeo.jpg", "name": "Xeo Cake"},
+    {"image": "assets/images/banhmi2.png", "name": "Banh Mi"},
+    {"image": "assets/images/icon/banhxeo2.png", "name": "Xeo Cake"},
+    {"image": "assets/images/icon/douong2.png", "name": "Drink"},
+    {"image": "assets/images/icon/goicuon2.png", "name": "Goi Cuon"},
+    {"image": "assets/images/icon/pho2.png", "name": "Pho"},
+    {"image": "assets/images/icon/bundaumemtom.png", "name": "Bun Dau Mam Tom"},
+    {"image": "assets/images/icon/comtam.png", "name": "Tấm Rice"},
+    {"image": "assets/images/icon/comrang.png", "name": "Fried Rice"}
   ];
 
   List mostPopArr = [
     {
-      "image": "assets/images/restaurants/m_res_2.png",
+      "image": "assets/images/m_res_2.png",
       "name": "Minute by tuk tuk",
       "rate": "4.9",
       "rating": "124",
@@ -39,6 +44,41 @@ class _MainPageState extends State<MainPage> {
       "rating": "124",
       "type": "Pho",
       "food_type": "Pho Bac"
+    },
+  ];
+
+  List recentArr = [
+    {
+      "image": "assets/images/pic/banhchung.jpg",
+      "name": "Bánh Chưng",
+      "rate": "4.9",
+      "rating": "124",
+      "type": "Chung cake",
+      "food_type": "Bắc food"
+    },
+    {
+      "image": "assets/images/pic/banhcuon.jpg",
+      "name": "Bánh cuốn vl",
+      "rate": "4.9",
+      "rating": "124",
+      "type": "Bánh cuốn",
+      "food_type": "Bắc food"
+    },
+    {
+      "image": "assets/images/pic/banhmi.jpg",
+      "name": "Bánh mì thịt",
+      "rate": "4.9",
+      "rating": "124",
+      "type": "Bánh mì",
+      "food_type": "Top 10"
+    },
+    {
+      "image": "assets/images/pic/banhxeo.jpg",
+      "name": "Bánh xèo",
+      "rate": "4.9",
+      "rating": "124",
+      "type": "Bánh xèo",
+      "food_type": "Hasagi"
     },
   ];
   void reload() {
@@ -200,6 +240,7 @@ class _MainPageState extends State<MainPage> {
                               onTap: () {
                                 indexSelected = index;
                                 reload();
+                                print(cObj['image'].toString());
                                 }
                             );
 
@@ -207,20 +248,22 @@ class _MainPageState extends State<MainPage> {
                         ),
                       ),
                       const SizedBox(
-                        height: 12,
+                        height: 8,
                       ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 20),
-                        child: Text(
-                          "Popular Restaurants",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontFamily: 'Trajan Pro',
-                            fontSize: 12,
-                            fontWeight: FontWeight.w700,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Popular Restaurant",
+                            style: TextStyle(
+                                color: TColor.primaryText,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w800),
                           ),
-                          textAlign: TextAlign.left,
-                        ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 5,
                       ),
                       SizedBox(
                         height: 200,
@@ -236,6 +279,37 @@ class _MainPageState extends State<MainPage> {
                             );
                           }),
                         ),
+                      ),
+                      const SizedBox(
+                        height: 8,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Recent Foods",
+                            style: TextStyle(
+                                color: TColor.primaryText,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w800),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      ListView.builder(
+                        physics: const NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        padding: const EdgeInsets.symmetric(horizontal: 15),
+                        itemCount: recentArr.length,
+                        itemBuilder: ((context, index) {
+                          var rObj = recentArr[index] as Map? ?? {};
+                          return RecentItemRow(
+                            rObj: rObj,
+                            onTap: () {},
+                          );
+                        }),
                       ),
                     //  Note: ma thanh thien dep trai da code den doan nay
                     ],
