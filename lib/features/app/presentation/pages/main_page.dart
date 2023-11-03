@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/category_cell.dart';
+import '../widgets/popular_restaurant.dart';
 import 'login_page.dart';
 
 
@@ -15,13 +16,31 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   List catArr = [
-    {"image": "assets/images/img_mini_pancake.png", "name": "Pan Cake"},
-    {"image": "assets/images/pho.png", "name": "Pho"},
-    {"image": "assets/images/avarta_flutter.jpg", "name": "Pan Cake"},
-    {"image": "assets/images/img_mini_pancake.png", "name": "Pan Cake"},
-    {"image": "assets/images/img_mini_pancake.png", "name": "Pan Cake"},
+    {"image": "assets/images/icon/banhcuon.png", "name": "Bánh Cuốn"},
+    {"image": "assets/images/icon/goicuon2.png", "name": "Gỏi Cuốn"},
+    {"image": "assets/images/comtam.jpg", "name": "Com Tam"},
+    {"image": "assets/images/icon/banhmi2.png", "name": "Bánh Mì"},
+    {"image": "assets/images/banhxeo.jpg", "name": "Xeo Cake"},
   ];
 
+  List mostPopArr = [
+    {
+      "image": "assets/images/restaurants/m_res_2.png",
+      "name": "Minute by tuk tuk",
+      "rate": "4.9",
+      "rating": "124",
+      "type": "Cafa",
+      "food_type": "Western Food"
+    },
+    {
+      "image": "assets/images/res1.png",
+      "name": "Phở Lý Quốc Sư",
+      "rate": "4.9",
+      "rating": "124",
+      "type": "Pho",
+      "food_type": "Pho Bac"
+    },
+  ];
   void reload() {
     setState(() {
     });
@@ -184,6 +203,37 @@ class _MainPageState extends State<MainPage> {
                                 }
                             );
 
+                          }),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 12,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        child: Text(
+                          "Popular Restaurants",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontFamily: 'Trajan Pro',
+                            fontSize: 12,
+                            fontWeight: FontWeight.w700,
+                          ),
+                          textAlign: TextAlign.left,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 200,
+                        child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          padding: const EdgeInsets.symmetric(horizontal: 15),
+                          itemCount: mostPopArr.length,
+                          itemBuilder: ((context, index) {
+                            var mObj = mostPopArr[index] as Map? ?? {};
+                            return PopularCell(
+                              mObj: mObj,
+                              onTap: () {},
+                            );
                           }),
                         ),
                       ),
