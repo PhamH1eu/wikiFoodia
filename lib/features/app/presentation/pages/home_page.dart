@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 import 'favorites_page.dart';
-import 'profile_page.dart';
+import 'noti_page.dart';
 import 'setting_page.dart';
 import 'main_page.dart';
 
@@ -23,8 +23,8 @@ class _HomePageState extends State<HomePage> {
 
   final Set<StatefulWidget> _pages = {
     MainPage(),
-    ProfilePage(),
     FavoritesPage(),
+    NotiPage(),
     SettingPage(),
   };
 
@@ -49,8 +49,8 @@ class _HomePageState extends State<HomePage> {
             },
             tabs: const [
               GButton(icon: Icons.home, text: "Home"),
-              GButton(icon: Icons.person, text: "Profile"),
               GButton(icon: Icons.favorite, text: "Favorites"),
+              GButton(icon: Icons.notifications, text: "Notifications"),
               GButton(icon: Icons.settings,text: "Settings"),
             ],
           ),
