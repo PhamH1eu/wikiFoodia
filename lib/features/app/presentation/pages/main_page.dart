@@ -16,16 +16,20 @@ class MainPage extends StatefulWidget {
   State<MainPage> createState() => _MainPageState();
 }
 
+String foodtype ="Banh Mi";
+
 class _MainPageState extends State<MainPage> {
   List catArr = [
-    {"image": "assets/images/banhmi2.png", "name": "Banh Mi"},
-    {"image": "assets/images/icon/banhxeo2.png", "name": "Xeo Cake"},
-    {"image": "assets/images/icon/douong2.png", "name": "Drink"},
-    {"image": "assets/images/icon/goicuon2.png", "name": "Goi Cuon"},
-    {"image": "assets/images/icon/pho2.png", "name": "Pho"},
-    {"image": "assets/images/icon/bundaumemtom.png", "name": "Bun Dau Mam Tom"},
-    {"image": "assets/images/icon/comtam.png", "name": "Tấm Rice"},
-    {"image": "assets/images/icon/comrang.png", "name": "Fried Rice"}
+    {"image": "assets/images/banhmi2.png", "name": "Banh Mi", "type":"Banh Mi"},
+    {"image": "assets/images/icon/banhxeo2.png", "name": "Xeo Cake", "type":"Xeo Cake"},
+    {"image": "assets/images/icon/douong2.png", "name": "Drink", "type":"Drink"},
+    {"image": "assets/images/icon/goicuon2.png", "name": "Goi Cuon", "type":"Goi Cuon"},
+    {"image": "assets/images/icon/pho2.png", "name": "Pho", "type":"Pho"},
+    {"image": "assets/images/icon/bundaumemtom.png", "name": "Bun Dau", "type":"BDMT"},
+    {"image": "assets/images/icon/comtam.png", "name": "Tấm Rice", "type":"Tam Rice"},
+    {"image": "assets/images/icon/comrang.png", "name": "Fried Rice", "type":"Fried Rice"},
+    {"image": "assets/images/icon/banhchung.png", "name": "Chung's Cake", "type":"Chung's Cake"},
+    {"image": "assets/images/icon/banhcuon.png", "name": "Bánh cuốn", "type":"Cuon Cake"}
   ];
 
   List mostPopArr = [
@@ -34,7 +38,7 @@ class _MainPageState extends State<MainPage> {
       "name": "Minute by tuk tuk",
       "rate": "4.9",
       "rating": "124",
-      "type": "Cafa",
+      "type": "Banh Mi",
       "food_type": "Western Food"
     },
     {
@@ -50,11 +54,19 @@ class _MainPageState extends State<MainPage> {
   List recentArr = [
     {
       "image": "assets/images/pic/banhchung.jpg",
-      "name": "Bánh Chưng",
+      "name": "Bánh Chưng Bắc",
       "rate": "4.9",
       "rating": "124",
-      "type": "Chung cake",
-      "food_type": "Bắc food"
+      "type": "Chung's Cake",
+      "food_type": "Chung's Cake"
+    },
+    {
+      "image": "assets/images/pic/banhchung2.jpg",
+      "name": "Bánh Chưng Name",
+      "rate": "4.9",
+      "rating": "124",
+      "type": "Chung's Cake",
+      "food_type": "Chung's Cake"
     },
     {
       "image": "assets/images/pic/banhcuon.jpg",
@@ -62,7 +74,15 @@ class _MainPageState extends State<MainPage> {
       "rate": "4.9",
       "rating": "124",
       "type": "Bánh cuốn",
-      "food_type": "Bắc food"
+      "food_type": "Cuon Cake"
+    },
+    {
+      "image": "assets/images/pic/banhcuon2.jpg",
+      "name": "Bánh cuốn vl",
+      "rate": "4.9",
+      "rating": "124",
+      "type": "Bánh cuốn",
+      "food_type": "Cuon Cake"
     },
     {
       "image": "assets/images/pic/banhmi.jpg",
@@ -70,16 +90,96 @@ class _MainPageState extends State<MainPage> {
       "rate": "4.9",
       "rating": "124",
       "type": "Bánh mì",
-      "food_type": "Top 10"
+      "food_type": "Banh Mi"
+    },
+    {
+      "image": "assets/images/pic/banhmi2.jpg",
+      "name": "Bánh mì thập cẩm",
+      "rate": "4.5",
+      "rating": "124",
+      "type": "Bánh mì",
+      "food_type": "Banh Mi"
     },
     {
       "image": "assets/images/pic/banhxeo.jpg",
-      "name": "Bánh xèo",
+      "name": "Bánh xèo Bắc",
       "rate": "4.9",
       "rating": "124",
       "type": "Bánh xèo",
-      "food_type": "Hasagi"
+      "food_type": "Xeo Cake"
     },
+    {
+      "image": "assets/images/pic/banhxeo2.jpg",
+      "name": "Bánh xèo Nam",
+      "rate": "4.9",
+      "rating": "124",
+      "type": "Bánh xèo",
+      "food_type": "Xeo Cake"
+    },
+    {
+      "image": "assets/images/pic/comrang.jpg",
+      "name": "Cơm rang thập cẩm",
+      "rate": "4.9",
+      "rating": "124",
+      "type": "Cơm rang",
+      "food_type": "Fried Rice"
+    },
+    {
+      "image": "assets/images/pic/comtam.jpg",
+      "name": "Cơm tấm",
+      "rate": "4.9",
+      "rating": "124",
+      "type": "Cơm tấm",
+      "food_type": "Tam Rice"
+    },
+    {
+      "image": "assets/images/pic/bundaumamtom.jpg",
+      "name": "Bún đậu",
+      "rate": "4.9",
+      "rating": "124",
+      "type": "Mắm tôm",
+      "food_type": "BDMT"
+    },
+    {
+      "image": "assets/images/pic/bundaumamtom2.jpg",
+      "name": "Bún đậu",
+      "rate": "4.9",
+      "rating": "124",
+      "type": "Nước mắm",
+      "food_type": "BDMT"
+    },
+    {
+      "image": "assets/images/pic/goicuon.jpg",
+      "name": "Gỏi cuốn",
+      "rate": "4.9",
+      "rating": "124",
+      "type": "Gỏi sống",
+      "food_type": "Goi Cuon"
+    },
+    {
+      "image": "assets/images/pic/goi-cuon2.jpg",
+      "name": "Gỏi cuốn",
+      "rate": "4.9",
+      "rating": "124",
+      "type": "Gỏi sống",
+      "food_type": "Goi Cuon"
+    },
+    {
+      "image": "assets/images/pic/pho.jpg",
+      "name": "Phở bòa",
+      "rate": "4.9",
+      "rating": "124",
+      "type": "Pho Bac",
+      "food_type": "Pho"
+    },
+    {
+      "image": "assets/images/pic/douong.jpg",
+      "name": "Cafe",
+      "rate": "4.9",
+      "rating": "124",
+      "type": "Cao Nguyên",
+      "food_type": "Drink"
+    }
   ];
   void reload() {
     setState(() {
@@ -235,15 +335,14 @@ class _MainPageState extends State<MainPage> {
                           itemBuilder: ((context, index) {
                             var cObj = catArr[index] as Map? ?? {};
                             return CategoryCell(
-                              index: index,
-                              cObj: cObj,
-                              onTap: () {
-                                indexSelected = index;
-                                reload();
-                                print(cObj['image'].toString());
+                                  index: index,
+                                  cObj: cObj,
+                                  onTap: () {
+                                    indexSelected = index;
+                                    reload();
+                                    foodtype = cObj['type'];
                                 }
-                            );
-
+                              );
                           }),
                         ),
                       ),
@@ -305,10 +404,14 @@ class _MainPageState extends State<MainPage> {
                         itemCount: recentArr.length,
                         itemBuilder: ((context, index) {
                           var rObj = recentArr[index] as Map? ?? {};
-                          return RecentItemRow(
-                            rObj: rObj,
-                            onTap: () {},
-                          );
+                          if(rObj['food_type'].toString() == foodtype) {
+                            return RecentItemRow(
+                              rObj: rObj,
+                              onTap: () {},
+                            );
+                          }
+                          else
+                            return SizedBox();
                         }),
                       ),
                     //  Note: ma thanh thien dep trai da code den doan nay
