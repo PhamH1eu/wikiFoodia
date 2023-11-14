@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../DetailPage/detail_page.dart';
 import 'favorite_provider.dart';
 
 class FavoritesPage extends StatefulWidget {
@@ -36,7 +37,9 @@ class _FavoritesPageState extends State<FavoritesPage> {
                 )
               ],
             ),
-            child: Card(
+            child: InkWell(
+              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => DetailPage(food: food,))),
+              child: Card(
                 color: Colors.white,
                 child: ListTile(
                   tileColor: Colors.white,
@@ -83,6 +86,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
                     },
                   ),
                 )),
+            )
           );
         },
       ),
@@ -136,7 +140,6 @@ class _FavoritesPageState extends State<FavoritesPage> {
                   IconButton(
                     icon: Icon(Icons.search, color: Color(0xfff97350)),
                     onPressed: () {
-                      ;
                     },
                   ),
                   IconButton(

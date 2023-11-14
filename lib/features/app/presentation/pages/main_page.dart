@@ -410,8 +410,9 @@ class _MainPageState extends State<MainPage> {
                               onTap: () {},
                             );
                           }
-                          else
+                          else {
                             return SizedBox();
+                          }
                         }),
                       ),
                     //  Note: ma thanh thien dep trai da code den doan nay

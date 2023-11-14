@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:wikifoodia/features/app/presentation/pages/FavoritePages/food.dart';
-import 'FavoritePages/favorite_provider.dart';
+import 'package:wikifoodia/features/app/presentation/pages/FavoritePage/food.dart';
+import 'FavoritePage/favorite_provider.dart';
 
 class FakeFavPage extends StatefulWidget {
   const FakeFavPage({Key? key}) : super(key: key);
