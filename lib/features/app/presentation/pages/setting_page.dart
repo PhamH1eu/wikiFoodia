@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -13,10 +12,10 @@ class SettingPage extends StatefulWidget {
 }
 
 class _SettingPageState extends State<SettingPage> {
-  String _name = "Hieu Dep Try";
-  String _email = "@example.com";
-  String _bio = "description about yourself go brrrr";
-  String _imageUrl = "https://placehold.it/200x200";
+  final String _name = "Hieu Dep Try";
+  final String _email = "@example.com";
+  final String _bio = "description about yourself go brrrr";
+  final String _imageUrl = "https://placehold.it/200x200";
 
   @override
   Widget build(BuildContext context) {
