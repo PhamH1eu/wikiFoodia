@@ -220,12 +220,15 @@ class _MainPageState extends State<MainPage> {
                                       TextStyle( fontSize: 15),
                                     ),
                                     SizedBox(
-                                      width: 10,
+                                      width: 0,
                                     ),
-                                    Image.asset(
-                                      "assets/images/dropdown.png",
-                                      width: 30,
-                                      height: 30,
+                                    IconButton(
+                                      icon: Icon(
+                                        Icons.arrow_drop_down,
+                                        size: 25,
+                                      ),
+                                      onPressed: () {
+                                      },
                                     ),
                                     const SizedBox(
                                       height: 6,
@@ -294,10 +297,12 @@ class _MainPageState extends State<MainPage> {
                                     prefixIcon: Container(
                                       alignment: Alignment.center,
                                       width: 30,
-                                      child: Image.asset(
-                                        "assets/images/search.png",
-                                        width: 35,
-                                        height: 35,
+                                      child: Align(
+                                        alignment: Alignment.center,
+                                        child: Icon(
+                                          Icons.search,
+                                          size: 30,
+                                        ),
                                       ),
                                     ),
                                     border: InputBorder.none,
@@ -349,17 +354,20 @@ class _MainPageState extends State<MainPage> {
                       const SizedBox(
                         height: 8,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "Popular Restaurant",
-                            style: TextStyle(
-                                color: TColor.primaryText,
-                                fontSize: 20,
-                                fontWeight: FontWeight.w800),
-                          ),
-                        ],
+                      Padding(
+                        padding: EdgeInsets.only(left: 30),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Popular Restaurant",
+                              style: TextStyle(
+                                  color: TColor.primaryText,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w800),
+                            ),
+                          ],
+                        ),
                       ),
                       const SizedBox(
                         height: 5,
@@ -382,17 +390,21 @@ class _MainPageState extends State<MainPage> {
                       const SizedBox(
                         height: 8,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "Recent Foods",
-                            style: TextStyle(
+                      Padding(
+                        padding: EdgeInsets.only(left: 30),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Recent Foods",
+                              style: TextStyle(
                                 color: TColor.primaryText,
                                 fontSize: 20,
-                                fontWeight: FontWeight.w800),
-                          ),
-                        ],
+                                fontWeight: FontWeight.w800,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                       const SizedBox(
                         height: 5,
