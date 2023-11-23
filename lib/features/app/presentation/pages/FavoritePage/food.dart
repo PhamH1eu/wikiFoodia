@@ -305,12 +305,8 @@ const allFoods = [
       ingredients: [
         Ingredient(name: "Gao", icon: "assets/images/ingredient/rice.png"),
         Ingredient(name: "Thit", icon: "assets/images/ingredient/pork4.png"),
-        Ingredient(name: "Dau phu", icon: "assets/images/ingredient/rice.png"),
-        Ingredient(
-            name: "Nem chua ran", icon: "assets/images/ingredient/rice.png"),
-        Ingredient(
-            name: "Doi sun nuong", icon: "assets/images/ingredient/rice.png"),
-        Ingredient(name: "Nem ran", icon: "assets/images/ingredient/rice.png"),
+        Ingredient(name: "Dau phu", icon: "assets/images/ingredient/tofu.png"),
+        Ingredient(name: "Tom", icon: "assets/images/ingredient/shrimp2.png"),
       ],
       stores: [
         Store(
