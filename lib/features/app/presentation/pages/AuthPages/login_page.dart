@@ -4,10 +4,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
-import '../widgets/flash_message.dart';
-import '../../../user_auth/firebase_auth_implementation/firebase_auth_services.dart';
-import '../../../user_auth/firebase_auth_implementation/google_auth_services.dart';
-import '../widgets/form_container_widget.dart';
+import '../../widgets/flash_message.dart';
+import '../../../../user_auth/firebase_auth_implementation/firebase_auth_services.dart';
+import '../../../../user_auth/firebase_auth_implementation/google_auth_services.dart';
+import '../../widgets/form_container_widget.dart';
 
 import 'sign_up_page.dart';
 
@@ -23,7 +23,7 @@ class _LoginPageState extends State<LoginPage> {
 
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-
+  
   @override
   void dispose() {
     _emailController.dispose();
@@ -136,10 +136,11 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                               label: Text('Sign in with Google'),
                               onPressed: () {
-                                final provider = Provider.of<GoogleSignInProvider>(context, listen: false);
-                                provider.googleLogin().then((value) => 
-                                    Navigator.pushNamed(context, "/home")
-                                );
+                                final provider =
+                                    Provider.of<GoogleSignInProvider>(context,
+                                        listen: false);
+                                provider.googleLogin().then((value) =>
+                                    Navigator.pushNamed(context, "/home"));
                               },
                             ),
                           ],

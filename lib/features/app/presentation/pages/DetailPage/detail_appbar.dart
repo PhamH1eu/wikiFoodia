@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wikifoodia/features/app/presentation/pages/FavoritePage/food.dart';
+import 'package:wikifoodia/features/app/presentation/pages/StorePage/stores_page.dart';
 
 import '../FavoritePage/favorite_provider.dart';
 
@@ -65,7 +66,9 @@ class _DetailAppBarState extends State<DetailAppBar> {
           child: CircleAvatar(
               backgroundColor: Colors.white,
               child: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => StoresPage(food: widget.food,)));
+                  },
                   icon: Icon(
                     Icons.storefront_sharp,
                     color: Colors.black,
