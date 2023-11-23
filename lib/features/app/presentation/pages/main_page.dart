@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:wikifoodia/features/app/presentation/pages/search.dart';
 
 import '../widgets/category_cell.dart';
 import '../widgets/color_extension.dart';
@@ -17,170 +18,38 @@ class MainPage extends StatefulWidget {
 }
 
 String foodtype ="Banh Mi";
+List catArr = [
+  {"image": "assets/images/banhmi2.png", "name": "Banh Mi", "type":"Banh Mi"},
+  {"image": "assets/images/icon/banhxeo2.png", "name": "Xeo Cake", "type":"Xeo Cake"},
+  {"image": "assets/images/icon/douong2.png", "name": "Drink", "type":"Drink"},
+  {"image": "assets/images/icon/goicuon2.png", "name": "Goi Cuon", "type":"Goi Cuon"},
+  {"image": "assets/images/icon/pho2.png", "name": "Pho", "type":"Pho"},
+  {"image": "assets/images/icon/bundaumemtom.png", "name": "Bun Dau", "type":"BDMT"},
+  {"image": "assets/images/icon/comtam.png", "name": "Tấm Rice", "type":"Tam Rice"},
+  {"image": "assets/images/icon/comrang.png", "name": "Fried Rice", "type":"Fried Rice"},
+  {"image": "assets/images/icon/banhchung.png", "name": "Chung's Cake", "type":"Chung's Cake"},
+  {"image": "assets/images/icon/banhcuon.png", "name": "Bánh cuốn", "type":"Cuon Cake"}
+];
 
+List mostPopArr = [
+  {
+    "image": "assets/images/m_res_2.png",
+    "name": "Minute by tuk tuk",
+    "rate": "4.9",
+    "rating": "124",
+    "type": "Banh Mi",
+    "food_type": "Western Food"
+  },
+  {
+    "image": "assets/images/res1.png",
+    "name": "Phở Lý Quốc Sư",
+    "rate": "4.9",
+    "rating": "124",
+    "type": "Pho",
+    "food_type": "Pho Bac"
+  },
+];
 class _MainPageState extends State<MainPage> {
-  List catArr = [
-    {"image": "assets/images/banhmi2.png", "name": "Banh Mi", "type":"Banh Mi"},
-    {"image": "assets/images/icon/banhxeo2.png", "name": "Xeo Cake", "type":"Xeo Cake"},
-    {"image": "assets/images/icon/douong2.png", "name": "Drink", "type":"Drink"},
-    {"image": "assets/images/icon/goicuon2.png", "name": "Goi Cuon", "type":"Goi Cuon"},
-    {"image": "assets/images/icon/pho2.png", "name": "Pho", "type":"Pho"},
-    {"image": "assets/images/icon/bundaumemtom.png", "name": "Bun Dau", "type":"BDMT"},
-    {"image": "assets/images/icon/comtam.png", "name": "Tấm Rice", "type":"Tam Rice"},
-    {"image": "assets/images/icon/comrang.png", "name": "Fried Rice", "type":"Fried Rice"},
-    {"image": "assets/images/icon/banhchung.png", "name": "Chung's Cake", "type":"Chung's Cake"},
-    {"image": "assets/images/icon/banhcuon.png", "name": "Bánh cuốn", "type":"Cuon Cake"}
-  ];
-
-  List mostPopArr = [
-    {
-      "image": "assets/images/m_res_2.png",
-      "name": "Minute by tuk tuk",
-      "rate": "4.9",
-      "rating": "124",
-      "type": "Banh Mi",
-      "food_type": "Western Food"
-    },
-    {
-      "image": "assets/images/res1.png",
-      "name": "Phở Lý Quốc Sư",
-      "rate": "4.9",
-      "rating": "124",
-      "type": "Pho",
-      "food_type": "Pho Bac"
-    },
-  ];
-
-  List recentArr = [
-    {
-      "image": "assets/images/pic/banhchung.jpg",
-      "name": "Bánh Chưng Bắc",
-      "rate": "4.9",
-      "rating": "124",
-      "type": "Chung's Cake",
-      "food_type": "Chung's Cake"
-    },
-    {
-      "image": "assets/images/pic/banhchung2.jpg",
-      "name": "Bánh Chưng Name",
-      "rate": "4.9",
-      "rating": "124",
-      "type": "Chung's Cake",
-      "food_type": "Chung's Cake"
-    },
-    {
-      "image": "assets/images/pic/banhcuon.jpg",
-      "name": "Bánh cuốn vl",
-      "rate": "4.9",
-      "rating": "124",
-      "type": "Bánh cuốn",
-      "food_type": "Cuon Cake"
-    },
-    {
-      "image": "assets/images/pic/banhcuon2.jpg",
-      "name": "Bánh cuốn vl",
-      "rate": "4.9",
-      "rating": "124",
-      "type": "Bánh cuốn",
-      "food_type": "Cuon Cake"
-    },
-    {
-      "image": "assets/images/pic/banhmi.jpg",
-      "name": "Bánh mì thịt",
-      "rate": "4.9",
-      "rating": "124",
-      "type": "Bánh mì",
-      "food_type": "Banh Mi"
-    },
-    {
-      "image": "assets/images/pic/banhmi2.jpg",
-      "name": "Bánh mì thập cẩm",
-      "rate": "4.5",
-      "rating": "124",
-      "type": "Bánh mì",
-      "food_type": "Banh Mi"
-    },
-    {
-      "image": "assets/images/pic/banhxeo.jpg",
-      "name": "Bánh xèo Bắc",
-      "rate": "4.9",
-      "rating": "124",
-      "type": "Bánh xèo",
-      "food_type": "Xeo Cake"
-    },
-    {
-      "image": "assets/images/pic/banhxeo2.jpg",
-      "name": "Bánh xèo Nam",
-      "rate": "4.9",
-      "rating": "124",
-      "type": "Bánh xèo",
-      "food_type": "Xeo Cake"
-    },
-    {
-      "image": "assets/images/pic/comrang.jpg",
-      "name": "Cơm rang thập cẩm",
-      "rate": "4.9",
-      "rating": "124",
-      "type": "Cơm rang",
-      "food_type": "Fried Rice"
-    },
-    {
-      "image": "assets/images/pic/comtam.jpg",
-      "name": "Cơm tấm",
-      "rate": "4.9",
-      "rating": "124",
-      "type": "Cơm tấm",
-      "food_type": "Tam Rice"
-    },
-    {
-      "image": "assets/images/pic/bundaumamtom.jpg",
-      "name": "Bún đậu",
-      "rate": "4.9",
-      "rating": "124",
-      "type": "Mắm tôm",
-      "food_type": "BDMT"
-    },
-    {
-      "image": "assets/images/pic/bundaumamtom2.jpg",
-      "name": "Bún đậu",
-      "rate": "4.9",
-      "rating": "124",
-      "type": "Nước mắm",
-      "food_type": "BDMT"
-    },
-    {
-      "image": "assets/images/pic/goicuon.jpg",
-      "name": "Gỏi cuốn",
-      "rate": "4.9",
-      "rating": "124",
-      "type": "Gỏi sống",
-      "food_type": "Goi Cuon"
-    },
-    {
-      "image": "assets/images/pic/goi-cuon2.jpg",
-      "name": "Gỏi cuốn",
-      "rate": "4.9",
-      "rating": "124",
-      "type": "Gỏi sống",
-      "food_type": "Goi Cuon"
-    },
-    {
-      "image": "assets/images/pic/pho.jpg",
-      "name": "Phở bòa",
-      "rate": "4.9",
-      "rating": "124",
-      "type": "Pho Bac",
-      "food_type": "Pho"
-    },
-    {
-      "image": "assets/images/pic/douong.jpg",
-      "name": "Cafe",
-      "rate": "4.9",
-      "rating": "124",
-      "type": "Cao Nguyên",
-      "food_type": "Drink"
-    }
-  ];
   void reload() {
     setState(() {
     });
@@ -292,6 +161,12 @@ class _MainPageState extends State<MainPage> {
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 child: TextField(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => SearchPage()),
+                                    );
+                                  },
                                   decoration: InputDecoration(
                                     hintText: "Find your food or restaurant...",
                                     prefixIcon: Container(
