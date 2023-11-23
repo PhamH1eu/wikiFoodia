@@ -10,12 +10,19 @@ class FlashMessage {
         elevation: 0,
         behavior: SnackBarBehavior.floating,
         backgroundColor: Colors.transparent,
+
+        dismissDirection: DismissDirection.up,
+        margin: EdgeInsets.only(
+          bottom: MediaQuery.of(context).size.height - 180,
+          left: 10,
+          right: 10,
+        ),
+        
         content: AwesomeSnackbarContent(
           color: Color(0xfff97350),
           title: 'Ohh!',
           message: message,
           messageFontSize: 17,
-
           /// change contentType to ContentType.success, ContentType.warning or ContentType.help for variants
           contentType: ContentType.failure,
         ),

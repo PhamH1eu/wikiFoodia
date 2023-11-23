@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../user_auth/firebase_auth_implementation/google_auth_services.dart';
-import 'login_page.dart';
+import 'AuthPages/login_page.dart';
 
 class SettingPage extends StatefulWidget {
   const SettingPage({Key? key}) : super(key: key);

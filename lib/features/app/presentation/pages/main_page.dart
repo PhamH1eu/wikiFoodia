@@ -5,7 +5,7 @@ import '../widgets/category_cell.dart';
 import '../widgets/color_extension.dart';
 import '../widgets/popular_restaurant.dart';
 import '../widgets/recent_food.dart';
-import 'login_page.dart';
+import 'AuthPages/login_page.dart';
 
 
 
