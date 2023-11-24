@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wikifoodia/features/app/presentation/pages/FavoritePage/food.dart';
 import 'package:wikifoodia/features/app/presentation/pages/StorePage/stores_page.dart';
-
+import 'package:share/share.dart';
 import '../FavoritePage/favorite_provider.dart';
 
 class DetailAppBar extends StatefulWidget {
@@ -79,7 +79,9 @@ class _DetailAppBarState extends State<DetailAppBar> {
           child: CircleAvatar(
               backgroundColor: Colors.white,
               child: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Share.share("Hey wanna try this dish? Looks delicious! \n\nhttps://play.google.com/store/apps/details?id=com.example");
+                  },
                   icon: Icon(
                     Icons.ios_share,
                     color: Colors.black,

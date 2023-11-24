@@ -20,7 +20,7 @@ class PopularCell extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
               child: Image.asset(
                 mObj["image"].toString(),
-                width: 220,
+                width: 260,
                 height: 130,
                 fit: BoxFit.cover,
               ),

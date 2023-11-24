@@ -8,8 +8,6 @@ import '../widgets/popular_restaurant.dart';
 import '../widgets/recent_food.dart';
 import 'AuthPages/login_page.dart';
 
-
-
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
 
@@ -17,18 +15,46 @@ class MainPage extends StatefulWidget {
   State<MainPage> createState() => _MainPageState();
 }
 
-String foodtype ="Banh Mi";
+String foodtype = "Banh Mi";
 List catArr = [
-  {"image": "assets/images/banhmi2.png", "name": "Banh Mi", "type":"Banh Mi"},
-  {"image": "assets/images/icon/banhxeo2.png", "name": "Xeo Cake", "type":"Xeo Cake"},
-  {"image": "assets/images/icon/douong2.png", "name": "Drink", "type":"Drink"},
-  {"image": "assets/images/icon/goicuon2.png", "name": "Goi Cuon", "type":"Goi Cuon"},
-  {"image": "assets/images/icon/pho2.png", "name": "Pho", "type":"Pho"},
-  {"image": "assets/images/icon/bundaumemtom.png", "name": "Bun Dau", "type":"BDMT"},
-  {"image": "assets/images/icon/comtam.png", "name": "Tấm Rice", "type":"Tam Rice"},
-  {"image": "assets/images/icon/comrang.png", "name": "Fried Rice", "type":"Fried Rice"},
-  {"image": "assets/images/icon/banhchung.png", "name": "Chung's Cake", "type":"Chung's Cake"},
-  {"image": "assets/images/icon/banhcuon.png", "name": "Bánh cuốn", "type":"Cuon Cake"}
+  {"image": "assets/images/banhmi2.png", "name": "Banh Mi", "type": "Banh Mi"},
+  {
+    "image": "assets/images/icon/banhxeo2.png",
+    "name": "Xeo Cake",
+    "type": "Xeo Cake"
+  },
+  {"image": "assets/images/icon/douong2.png", "name": "Drink", "type": "Drink"},
+  {
+    "image": "assets/images/icon/goicuon2.png",
+    "name": "Goi Cuon",
+    "type": "Goi Cuon"
+  },
+  {"image": "assets/images/icon/pho2.png", "name": "Pho", "type": "Pho"},
+  {
+    "image": "assets/images/icon/bundaumemtom.png",
+    "name": "Bun Dau",
+    "type": "BDMT"
+  },
+  {
+    "image": "assets/images/icon/comtam.png",
+    "name": "Tấm Rice",
+    "type": "Tam Rice"
+  },
+  {
+    "image": "assets/images/icon/comrang.png",
+    "name": "Fried Rice",
+    "type": "Fried Rice"
+  },
+  {
+    "image": "assets/images/icon/banhchung.png",
+    "name": "Chung's Cake",
+    "type": "Chung's Cake"
+  },
+  {
+    "image": "assets/images/icon/banhcuon.png",
+    "name": "Bánh cuốn",
+    "type": "Cuon Cake"
+  }
 ];
 
 List mostPopArr = [
@@ -49,10 +75,10 @@ List mostPopArr = [
     "food_type": "Pho Bac"
   },
 ];
+
 class _MainPageState extends State<MainPage> {
   void reload() {
-    setState(() {
-    });
+    setState(() {});
   }
 
   @override
@@ -67,13 +93,15 @@ class _MainPageState extends State<MainPage> {
               );
             } else if (snapshot.hasData) {
               return SingleChildScrollView(
-                  child: Padding(padding: const EdgeInsets.symmetric(vertical: 20),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 20),
                   child: Column(
                     children: [
                       const SizedBox(
                         height: 46,
                       ),
-                      Padding(padding: const EdgeInsets.symmetric(horizontal: 20),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -85,8 +113,7 @@ class _MainPageState extends State<MainPage> {
                                   children: [
                                     Text(
                                       "Delivering to",
-                                      style:
-                                      TextStyle( fontSize: 15),
+                                      style: TextStyle(fontSize: 15),
                                     ),
                                     SizedBox(
                                       width: 0,
@@ -96,15 +123,13 @@ class _MainPageState extends State<MainPage> {
                                         Icons.arrow_drop_down,
                                         size: 25,
                                       ),
-                                      onPressed: () {
-                                      },
+                                      onPressed: () {},
                                     ),
                                     const SizedBox(
                                       height: 6,
                                     ),
                                   ],
                                 ),
-
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: const [
@@ -122,11 +147,15 @@ class _MainPageState extends State<MainPage> {
                                 )
                               ],
                             ),
-                            IconButton(onPressed: () {}
-                                , icon: Image.asset("assets/images/img.png",
-                                  width: 30,
-                                  height: 30,
-                                )
+                            GestureDetector(
+                              onTap: () {
+
+                              },
+                              child: CircleAvatar(
+                                radius: 30,
+                                backgroundImage:
+                                    AssetImage("assets/images/avatar.jpg"),
+                              ),
                             )
                           ],
                         ),
@@ -164,7 +193,8 @@ class _MainPageState extends State<MainPage> {
                                   onTap: () {
                                     Navigator.push(
                                       context,
-                                      MaterialPageRoute(builder: (context) => SearchPage()),
+                                      MaterialPageRoute(
+                                          builder: (context) => SearchPage()),
                                     );
                                   },
                                   decoration: InputDecoration(
@@ -215,14 +245,13 @@ class _MainPageState extends State<MainPage> {
                           itemBuilder: ((context, index) {
                             var cObj = catArr[index] as Map? ?? {};
                             return CategoryCell(
-                                  index: index,
-                                  cObj: cObj,
-                                  onTap: () {
-                                    indexSelected = index;
-                                    reload();
-                                    foodtype = cObj['type'];
-                                }
-                              );
+                                index: index,
+                                cObj: cObj,
+                                onTap: () {
+                                  indexSelected = index;
+                                  reload();
+                                  foodtype = cObj['type'];
+                                });
                           }),
                         ),
                       ),
@@ -291,21 +320,20 @@ class _MainPageState extends State<MainPage> {
                         itemCount: recentArr.length,
                         itemBuilder: ((context, index) {
                           var rObj = recentArr[index] as Map? ?? {};
-                          if(rObj['food_type'].toString() == foodtype) {
+                          if (rObj['food_type'].toString() == foodtype) {
                             return RecentItemRow(
                               rObj: rObj,
                               onTap: () {},
                             );
-                          }
-                          else {
+                          } else {
                             return SizedBox();
                           }
                         }),
                       ),
-                    //  Note: ma thanh thien dep trai da code den doan nay
+                      //  Note: ma thanh thien dep trai da code den doan nay
                     ],
                   ),
-                  ),
+                ),
               );
             } else if (snapshot.hasError) {
               return Center(
