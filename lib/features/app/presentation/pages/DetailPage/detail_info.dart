@@ -29,7 +29,7 @@ class DetailInfo extends StatelessWidget {
               children: [
                 Icon(
                   Icons.star,
-                  color: Colors.yellow,
+                  color: Colors.orange,
                   size: 25,
                 ),
                 Text("4,5",
@@ -45,7 +45,7 @@ class DetailInfo extends StatelessWidget {
                       style: TextStyle(
                           decoration: TextDecoration.underline,
                           color: TColor.primary,
-                          fontSize: 15,
+                          fontSize: 17,
                           fontWeight: FontWeight.normal),
                     ))
               ],
@@ -58,7 +58,7 @@ class DetailInfo extends StatelessWidget {
               style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.normal,
-                  color: Colors.grey),
+                  color: Colors.black54),
               textAlign: TextAlign.justify,
             ),
             SizedBox(
@@ -79,7 +79,6 @@ class DetailInfo extends StatelessWidget {
                   icon: ingredient.icon,
                 );
               },
-
             ),
           ],
         ),

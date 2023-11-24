@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../DetailPage/detail_page.dart';
+import '../search.dart';
 import 'favorite_provider.dart';
 
 class FavoritesPage extends StatefulWidget {
@@ -134,6 +135,8 @@ class _FavoritesPageState extends State<FavoritesPage> {
                   borderRadius: BorderRadius.all(Radius.circular(10.0)),
                 ),
                 title: TextField(
+                  onTap: () => Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => SearchPage())),
                   decoration: InputDecoration(
                       hintText: "Search",
                       border: InputBorder.none,
