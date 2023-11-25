@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:wikifoodia/features/app/presentation/pages/FavoritePage/food.dart';
+import 'package:wikifoodia/features/app/presentation/pages/StorePage/map.dart';
 import 'package:wikifoodia/features/app/presentation/pages/search.dart';
 
 import '../widgets/category_cell.dart';
@@ -7,6 +9,7 @@ import '../widgets/color_extension.dart';
 import '../widgets/popular_restaurant.dart';
 import '../widgets/recent_food.dart';
 import 'AuthPages/login_page.dart';
+import 'StorePage/store.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -58,22 +61,33 @@ List catArr = [
 ];
 
 List mostPopArr = [
-  {
-    "image": "assets/images/m_res_2.png",
-    "name": "Minute by tuk tuk",
-    "rate": "4.9",
-    "rating": "124",
-    "type": "Banh Mi",
-    "food_type": "Western Food"
-  },
-  {
-    "image": "assets/images/res1.png",
-    "name": "Phở Lý Quốc Sư",
-    "rate": "4.9",
-    "rating": "124",
-    "type": "Pho",
-    "food_type": "Pho Bac"
-  },
+  Store(
+      name: 'Bánh chưng tiến Vua Phong Châu',
+      address: '57 ngách 1 Ngõ 178 Thái Hà',
+      image: 'assets/images/restaurants/tienvuaphongchau.png',
+      phone: '0916 086 938',
+      status: false,
+      location: {21.014487108065232, 105.82022338012801},
+      type: "Bánh chưng",
+      food_type: "Chung Cake"),
+  Store(
+      name: 'Bánh cuốn Bà Béo',
+      address: '226 Đ. Phú Mỹ',
+      image: 'assets/images/restaurants/banhcuonbabeo.jpg',
+      phone: '0925 066 886',
+      status: true,
+      location: {21.02766786814987, 105.77290053779844},
+      type: "Bánh cuốn",
+      food_type: "Cuon Cake"),
+  Store(
+      name: 'Phở Lý Quốc Sư Mỹ Đình',
+      address: 'N4-A10, Đ. Mỹ Đình, Hà Nội',
+      image: 'assets/images/res1.png',
+      phone: '0968 318 765',
+      status: true,
+      location: {21.02328394468234, 105.77381979546853},
+      type: "Phở",
+      food_type: "Pho Bac"),
 ];
 
 class _MainPageState extends State<MainPage> {
@@ -148,9 +162,7 @@ class _MainPageState extends State<MainPage> {
                               ],
                             ),
                             GestureDetector(
-                              onTap: () {
-
-                              },
+                              onTap: () {},
                               child: CircleAvatar(
                                 radius: 30,
                                 backgroundImage:
@@ -191,10 +203,13 @@ class _MainPageState extends State<MainPage> {
                                 ),
                                 child: TextField(
                                   onTap: () {
+                                    primaryFocus!.unfocus();
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => SearchPage()),
+                                          builder: (context) => SearchPage(
+                                                initialFoods: allFoods,
+                                              )),
                                     );
                                   },
                                   decoration: InputDecoration(
@@ -206,6 +221,7 @@ class _MainPageState extends State<MainPage> {
                                         alignment: Alignment.center,
                                         child: Icon(
                                           Icons.search,
+                                          color: Color(0xfff97350),
                                           size: 30,
                                         ),
                                       ),
@@ -283,10 +299,17 @@ class _MainPageState extends State<MainPage> {
                           padding: const EdgeInsets.symmetric(horizontal: 15),
                           itemCount: mostPopArr.length,
                           itemBuilder: ((context, index) {
-                            var mObj = mostPopArr[index] as Map? ?? {};
+                            var mObj = mostPopArr[index];
                             return PopularCell(
                               mObj: mObj,
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          MapStore(store: mObj)),
+                                );
+                              },
                             );
                           }),
                         ),
@@ -319,8 +342,8 @@ class _MainPageState extends State<MainPage> {
                         padding: const EdgeInsets.symmetric(horizontal: 15),
                         itemCount: recentArr.length,
                         itemBuilder: ((context, index) {
-                          var rObj = recentArr[index] as Map? ?? {};
-                          if (rObj['food_type'].toString() == foodtype) {
+                          var rObj = recentArr[index];
+                          if (rObj.food_type.toString() == foodtype) {
                             return RecentItemRow(
                               rObj: rObj,
                               onTap: () {},
@@ -330,7 +353,6 @@ class _MainPageState extends State<MainPage> {
                           }
                         }),
                       ),
-                      //  Note: ma thanh thien dep trai da code den doan nay
                     ],
                   ),
                 ),

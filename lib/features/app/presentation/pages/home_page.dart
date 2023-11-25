@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
-
 import 'FavoritePage/favorites_page.dart';
-import 'fake_fav_page.dart';
 import 'setting_page.dart';
 import 'main_page.dart';
 
@@ -26,7 +24,6 @@ class _HomePageState extends State<HomePage> {
     MainPage(),
     FavoritesPage(),
     SettingPage(),
-    FakeFavPage(),
   };
 
 
@@ -52,7 +49,6 @@ class _HomePageState extends State<HomePage> {
               GButton(icon: Icons.home, text: "Home"),
               GButton(icon: Icons.favorite, text: "Favorites"),
               GButton(icon: Icons.settings,text: "Settings"),
-              GButton(icon: Icons.add, text: "F"),
             ],
           ),
         ),
