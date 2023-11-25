@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:wikifoodia/features/app/presentation/pages/StorePage/store.dart';
 
 import 'color_extension.dart';
 
 class PopularCell extends StatelessWidget {
-  final Map mObj;
+  final Store mObj;
   final VoidCallback onTap;
   const PopularCell({super.key, required this.mObj, required this.onTap});
 
@@ -19,7 +20,7 @@ class PopularCell extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(10),
               child: Image.asset(
-                mObj["image"].toString(),
+                mObj.image.toString(),
                 width: 260,
                 height: 130,
                 fit: BoxFit.cover,
@@ -29,7 +30,7 @@ class PopularCell extends StatelessWidget {
               height: 8,
             ),
             Text(
-              mObj["name"],
+              mObj.name,
               textAlign: TextAlign.center,
               style: TextStyle(
                   color: TColor.primaryText,
@@ -43,7 +44,7 @@ class PopularCell extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
-                  mObj["type"],
+                  mObj.type,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       color: TColor.secondaryText,
@@ -57,7 +58,7 @@ class PopularCell extends StatelessWidget {
                 ),
 
                 Text(
-                  mObj["food_type"],
+                  mObj.food_type,
                   textAlign: TextAlign.center,
                   style: TextStyle(color: TColor.secondaryText, fontSize: 12),
                 ),
@@ -76,7 +77,7 @@ class PopularCell extends StatelessWidget {
                   width: 4,
                 ),
                 Text(
-                  mObj["rate"],
+                  "4.6 (99+)",
                   textAlign: TextAlign.center,
                   style: TextStyle(color: TColor.primary, fontSize: 12),
                 ),

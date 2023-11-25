@@ -19,7 +19,61 @@ class _FavoritesPageState extends State<FavoritesPage> {
     final foods = provider.favFoods;
 
     return Scaffold(
-      appBar: _appBar(AppBar().preferredSize.height),
+      appBar: PreferredSize(
+        preferredSize: Size(MediaQuery.of(context).size.width,
+            AppBar().preferredSize.height + 80),
+        child: Stack(
+          children: <Widget>[
+            Container(
+              // Background
+              color: Color(0xfff97350),
+              height: AppBar().preferredSize.height + 90,
+              width: MediaQuery.of(context).size.width, // Background
+              child: Center(
+                child: Text(
+                  "Favorites",
+                  style: TextStyle(
+                      fontSize: 30.0,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.white),
+                ),
+              ),
+            ),
+
+            Container(), // Required some widget in between to float AppBar
+
+            Positioned(
+              // To take AppBar Size only
+              top: 100.0,
+              left: 20.0,
+              right: 20.0,
+              child: AppBar(
+                backgroundColor: Colors.white,
+                leading: Icon(Icons.search, color: Color(0xfff97350)),
+                primary: false,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                ),
+                title: TextField(
+                  onTap: () => {
+                    primaryFocus!.unfocus(),
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => SearchPage(
+                                  initialFoods: foods,
+                                )))
+                  },
+                  decoration: InputDecoration(
+                      hintText: "Search",
+                      border: InputBorder.none,
+                      hintStyle: TextStyle(color: Colors.grey)),
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
       body: ListView.builder(
         itemCount: foods.length,
         itemBuilder: (context, index) {
@@ -48,13 +102,13 @@ class _FavoritesPageState extends State<FavoritesPage> {
                     child: ListTile(
                       tileColor: Colors.white,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(0.5),
+                        borderRadius: BorderRadius.circular(15),
                       ),
                       contentPadding:
                           const EdgeInsets.symmetric(horizontal: 8.0),
                       leading: Container(
-                        width: 70.0,
-                        height: 70.0,
+                        width: 80.0,
+                        height: 80.0,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0),
                           image: DecorationImage(
@@ -66,14 +120,14 @@ class _FavoritesPageState extends State<FavoritesPage> {
                       title: Text(
                         food.name,
                         style: TextStyle(
-                          fontSize: 20.0,
+                          fontSize: 21.0,
                           fontWeight: FontWeight.normal,
                         ),
                       ),
                       subtitle: Text(
                         food.subtitle,
                         style: TextStyle(
-                          fontSize: 13.0,
+                          fontSize: 14.0,
                           fontWeight: FontWeight.normal,
                         ),
                       ),
@@ -96,61 +150,4 @@ class _FavoritesPageState extends State<FavoritesPage> {
       ),
     );
   }
-
-  _appBar(height) => PreferredSize(
-        preferredSize: Size(MediaQuery.of(context).size.width, height + 80),
-        child: Stack(
-          children: <Widget>[
-            Container(
-              // Background
-              color: Color(0xfff97350),
-              height: height + 90,
-              width: MediaQuery.of(context).size.width, // Background
-              child: Center(
-                child: Text(
-                  "Favorites",
-                  style: TextStyle(
-                      fontSize: 30.0,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.white),
-                ),
-              ),
-            ),
-
-            Container(), // Required some widget in between to float AppBar
-
-            Positioned(
-              // To take AppBar Size only
-              top: 100.0,
-              left: 20.0,
-              right: 20.0,
-              child: AppBar(
-                backgroundColor: Colors.white,
-                leading: Icon(
-                  Icons.menu,
-                  color: Color(0xfff97350),
-                ),
-                primary: false,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                ),
-                title: TextField(
-                  onTap: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => SearchPage())),
-                  decoration: InputDecoration(
-                      hintText: "Search",
-                      border: InputBorder.none,
-                      hintStyle: TextStyle(color: Colors.grey)),
-                ),
-                actions: <Widget>[
-                  IconButton(
-                    icon: Icon(Icons.search, color: Color(0xfff97350)),
-                    onPressed: () {},
-                  ),
-                ],
-              ),
-            )
-          ],
-        ),
-      );
 }
