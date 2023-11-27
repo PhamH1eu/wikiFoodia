@@ -1,5 +1,11 @@
+// ignore_for_file: unused_local_variable
+
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:http/http.dart' as http;
 import 'package:latlong2/latlong.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -15,6 +21,49 @@ class MapStore extends StatefulWidget {
 
 class _MapStoreState extends State<MapStore> {
   final _mapControl = MapController();
+  List<LatLng> routpoints = [];
+  LatLng currentPostion = LatLng(0, 0);
+
+  void _getUserLocation() async {
+    LocationPermission permission = await Geolocator.requestPermission();
+    var position = await GeolocatorPlatform.instance.getCurrentPosition();
+    if (mounted) {
+      setState(() {
+        currentPostion = LatLng(position.latitude, position.longitude);
+      });
+    }
+
+    var v1 = currentPostion.latitude;
+    var v2 = currentPostion.longitude;
+    var v3 = widget.store.location.first;
+    var v4 = widget.store.location.last;
+
+    var url = Uri.parse(
+        'http://router.project-osrm.org/route/v1/driving/$v2,$v1;$v4,$v3?steps=true&annotations=true&geometries=geojson&overview=full');
+    var response = await http.get(url);
+    if (mounted) {
+      setState(() {
+        routpoints = [];
+        var ruter =
+            jsonDecode(response.body)['routes'][0]['geometry']['coordinates'];
+        for (int i = 0; i < ruter.length; i++) {
+          var reep = ruter[i].toString();
+          reep = reep.replaceAll("[", "");
+          reep = reep.replaceAll("]", "");
+          var lat1 = reep.split(',');
+          var long1 = reep.split(",");
+          routpoints.add(LatLng(double.parse(lat1[1]), double.parse(long1[0])));
+        }
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    _getUserLocation();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,14 +94,21 @@ class _MapStoreState extends State<MapStore> {
           mapController: _mapControl,
           children: [
             TileLayer(
-              urlTemplate:
-                  'https://api.mapbox.com/styles/v1/anhhungdaychau/clpbenuin007u01padi4e93tx/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiYW5oaHVuZ2RheWNoYXUiLCJhIjoiY2xwYmVqbzMzMGNuZzJrb2J4YWZ1ajhnciJ9.2y5YF0tkLClfFWTIkMHz0Q',
-              additionalOptions: const {
-                'accessToken':
-                    'pk.eyJ1IjoiYW5oaHVuZ2RheWNoYXUiLCJhIjoiY2xwYmVqbzMzMGNuZzJrb2J4YWZ1ajhnciJ9.2y5YF0tkLClfFWTIkMHz0Q',
-                'id': 'mapbox.mapbox-streets-v7'
-              },
+              urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
             ),
+            PolylineLayer(polylines: [
+              Polyline(
+                  points: routpoints, strokeWidth: 5.0, color: Colors.blueAccent)
+            ]),
+            // TileLayer(
+            //   urlTemplate:
+            //       'https://api.mapbox.com/styles/v1/anhhungdaychau/clpbenuin007u01padi4e93tx/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiYW5oaHVuZ2RheWNoYXUiLCJhIjoiY2xwYmVqbzMzMGNuZzJrb2J4YWZ1ajhnciJ9.2y5YF0tkLClfFWTIkMHz0Q',
+            //   additionalOptions: const {
+            //     'accessToken':
+            //         'pk.eyJ1IjoiYW5oaHVuZ2RheWNoYXUiLCJhIjoiY2xwYmVqbzMzMGNuZzJrb2J4YWZ1ajhnciJ9.2y5YF0tkLClfFWTIkMHz0Q',
+            //     'id': 'mapbox.mapbox-streets-v7'
+            //   },
+            // ),
             MarkerLayer(markers: [
               Marker(
                   width: 80.0,
@@ -64,7 +120,18 @@ class _MapStoreState extends State<MapStore> {
                     color: Color(0xfff97350),
                     iconSize: 45,
                     onPressed: () {},
-                  ))
+                  )),
+              Marker(
+                  width: 80.0,
+                  height: 80.0,
+                  point: LatLng(
+                      currentPostion.latitude, currentPostion.longitude),
+                  child: IconButton(
+                    icon: Icon(Icons.location_on),
+                    color: Color(0xfff97350),
+                    iconSize: 45,
+                    onPressed: () {},
+                  )),
             ])
           ],
         ),
@@ -75,8 +142,8 @@ class _MapStoreState extends State<MapStore> {
           child: GestureDetector(
             onTap: () {
               _mapControl.move(
-                  LatLng(widget.store.location.first,
-                      widget.store.location.last),
+                  LatLng(
+                      widget.store.location.first, widget.store.location.last),
                   13.0);
             },
             child: Container(
