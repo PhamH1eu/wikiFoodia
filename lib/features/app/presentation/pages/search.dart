@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:wikifoodia/features/app/presentation/pages/FavoritePage/food.dart';
 
 import '../widgets/recent_food.dart';
+import '../../../../const.dart';
 
 List recentArr = allFoods;
 List foundedArr = [];

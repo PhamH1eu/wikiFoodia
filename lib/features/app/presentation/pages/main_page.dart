@@ -9,7 +9,7 @@ import '../widgets/color_extension.dart';
 import '../widgets/popular_restaurant.dart';
 import '../widgets/recent_food.dart';
 import 'AuthPages/login_page.dart';
-import 'StorePage/store.dart';
+import '../../../../const.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -19,76 +19,7 @@ class MainPage extends StatefulWidget {
 }
 
 String foodtype = "Banh Mi";
-List catArr = [
-  {"image": "assets/images/banhmi2.png", "name": "Banh Mi", "type": "Banh Mi"},
-  {
-    "image": "assets/images/icon/banhxeo2.png",
-    "name": "Xeo Cake",
-    "type": "Xeo Cake"
-  },
-  {"image": "assets/images/icon/douong2.png", "name": "Drink", "type": "Drink"},
-  {
-    "image": "assets/images/icon/goicuon2.png",
-    "name": "Goi Cuon",
-    "type": "Goi Cuon"
-  },
-  {"image": "assets/images/icon/pho2.png", "name": "Pho", "type": "Pho"},
-  {
-    "image": "assets/images/icon/bundaumemtom.png",
-    "name": "Bun Dau",
-    "type": "BDMT"
-  },
-  {
-    "image": "assets/images/icon/comtam.png",
-    "name": "Tấm Rice",
-    "type": "Tam Rice"
-  },
-  {
-    "image": "assets/images/icon/comrang.png",
-    "name": "Fried Rice",
-    "type": "Fried Rice"
-  },
-  {
-    "image": "assets/images/icon/banhchung.png",
-    "name": "Chung's Cake",
-    "type": "Chung's Cake"
-  },
-  {
-    "image": "assets/images/icon/banhcuon.png",
-    "name": "Bánh cuốn",
-    "type": "Cuon Cake"
-  }
-];
 
-List mostPopArr = [
-  Store(
-      name: 'Bánh chưng tiến Vua Phong Châu',
-      address: '57 ngách 1 Ngõ 178 Thái Hà',
-      image: 'assets/images/restaurants/tienvuaphongchau.png',
-      phone: '0916 086 938',
-      status: false,
-      location: {21.014487108065232, 105.82022338012801},
-      type: "Bánh chưng",
-      food_type: "Chung Cake"),
-  Store(
-      name: 'Bánh cuốn Bà Béo',
-      address: '226 Đ. Phú Mỹ',
-      image: 'assets/images/restaurants/banhcuonbabeo.jpg',
-      phone: '0925 066 886',
-      status: true,
-      location: {21.02766786814987, 105.77290053779844},
-      type: "Bánh cuốn",
-      food_type: "Cuon Cake"),
-  Store(
-      name: 'Phở Lý Quốc Sư Mỹ Đình',
-      address: 'N4-A10, Đ. Mỹ Đình, Hà Nội',
-      image: 'assets/images/res1.png',
-      phone: '0968 318 765',
-      status: true,
-      location: {21.02328394468234, 105.77381979546853},
-      type: "Phở",
-      food_type: "Pho Bac"),
-];
 
 class _MainPageState extends State<MainPage> {
   void reload() {

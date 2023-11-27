@@ -43,7 +43,7 @@ class PopupCard extends StatelessWidget {
                       children: [
                         Container(
                           alignment: Alignment.topLeft,
-                          margin: EdgeInsets.only(left: 10),
+                          margin: EdgeInsets.only(left: 5),
                           child: Flexible(
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -81,7 +81,10 @@ class PopupCard extends StatelessWidget {
                                           color: Color(0xfff97350),
                                           size: 25.0,
                                         ),
-                                        onPressed: () async => await launchUrl(Uri(scheme: "tel", path: store.phone)),
+                                        onPressed: () async => await launchUrl(
+                                            Uri(
+                                                scheme: "tel",
+                                                path: store.phone)),
                                       ),
                                     ),
                                     horizontalTitleGap: -20,
@@ -143,15 +146,17 @@ class PopupCard extends StatelessWidget {
                                     )
                                   ],
                                 ),
-                                store.status ? Text(
-                                  "Opening",
-                                  style: TextStyle(
-                                      color: Colors.green, fontSize: 15),
-                                ) : Text(
-                                  "Closed",
-                                  style: TextStyle(
-                                      color: Colors.red, fontSize: 15),
-                                )
+                                store.status
+                                    ? Text(
+                                        "Opening",
+                                        style: TextStyle(
+                                            color: Colors.green, fontSize: 15),
+                                      )
+                                    : Text(
+                                        "Closed",
+                                        style: TextStyle(
+                                            color: Colors.red, fontSize: 15),
+                                      )
                               ],
                             ),
                           ),

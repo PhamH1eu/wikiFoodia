@@ -19,12 +19,6 @@ class _DetailPageState extends State<DetailPage> {
       body: CustomScrollView(
         slivers: [
           DetailAppBar(food: widget.food,),
-          // SliverPadding(
-          //   padding: EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 20),
-          //   sliver: SliverToBoxAdapter(
-          //     child: DetailInfo(food: widget.food)
-          //   ),
-          // ),
           SliverToBoxAdapter(
             child: DetailInfo(food: widget.food),
           ),
