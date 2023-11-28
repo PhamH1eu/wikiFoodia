@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:wikifoodia/features/app/presentation/pages/FavoritePage/food.dart';
 import 'package:wikifoodia/features/app/presentation/pages/StorePage/map.dart';
+import 'package:wikifoodia/features/app/presentation/pages/detectionFood.dart';
 import 'package:wikifoodia/features/app/presentation/pages/search.dart';
 
 import '../widgets/category_cell.dart';
@@ -174,6 +175,11 @@ class _MainPageState extends State<MainPage> {
                                 icon: Icon(Icons.filter_list),
                                 onPressed: () {
                                   // Xử lý sự kiện khi nhấn vào nút lọc
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                      builder: (context) => DetectionFood()
+                                  ));
                                 },
                               ),
                             ),
