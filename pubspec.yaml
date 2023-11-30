@@ -83,6 +83,8 @@ flutter:
     - assets/images/pic/
     - assets/images/ingredient/
     - assets/images/restaurants/
+    - assets/tflite/labels.txt
+    - assets/tflite/model_unquant.tflite
 
   # To add assets to your application, add an assets section, like this:
   # assets:

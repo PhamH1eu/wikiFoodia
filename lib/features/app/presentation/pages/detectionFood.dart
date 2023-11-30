@@ -32,11 +32,14 @@ class _DetectionFood extends State<DetectionFood> {
     if (imageFile != null) {
       var recognitions = await Tflite.runModelOnImage(
         path: imageFile!.path,
+          imageMean: 0.0, // defaults to 117.0
+          imageStd: 255.0, // defaults to 1.0
+          numResults: 2, // defaults to 5
+          threshold: 0.2
       );
-
       setState(() {
         recognizedFood = recognitions![0]['label'];
-        print(recognizedFood + 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
+        print(recognitions);
       });
     }
   }
@@ -106,7 +109,7 @@ class _DetectionFood extends State<DetectionFood> {
   }
 
   void getImage({required ImageSource source}) async {
-    print('heeeeeeeeeeeeeeee');
+
     final file = await ImagePicker().pickImage(
         source: source,
         maxWidth: 640,
