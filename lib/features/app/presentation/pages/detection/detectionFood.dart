@@ -2,6 +2,11 @@ import 'dart:io';
 import 'package:tflite_v2/tflite_v2.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:wikifoodia/features/app/presentation/pages/search.dart';
+
+import '../../../../../const.dart';
+import '../../widgets/color_extension.dart';
+import 'fastSearch.dart';
 
 class DetectionFood extends StatefulWidget {
   const DetectionFood({Key? key}) : super(key: key);
@@ -55,6 +60,24 @@ class _DetectionFood extends State<DetectionFood> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            TextButton(
+              style: TextButton.styleFrom(
+                  textStyle: TextStyle(
+                      color: Colors.red,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w800)
+              ),
+                onPressed: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => FastSearch(
+                          initialFoods: allFoods,
+                          foodName: recognizedFood,
+                        )),
+                  );
+                },
+                child: Text(recognizedFood)),
             if(imageFile != null)
               Container(
                 width: 640,
