@@ -1,0 +1,10 @@
+0 Phở
+1 Bánh cuốn
+2 Bún đậu
+3 Bánh chưng
+4 Bánh xèo
+5 Cà phê
+6 Cơm rang
+7 Bánh mì
+8 Cơm tấm
+9 gỏi cuốn
