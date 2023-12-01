@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'dart:io';
 import 'package:tflite_v2/tflite_v2.dart';
 import 'package:flutter/material.dart';

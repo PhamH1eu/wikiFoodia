@@ -23,7 +23,7 @@ class _LoginPageState extends State<LoginPage> {
 
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  
+
   @override
   void dispose() {
     _emailController.dispose();
@@ -49,9 +49,9 @@ class _LoginPageState extends State<LoginPage> {
                           height: 80,
                         ),
                         Image.asset('assets/images/pho.png', height: 200),
-                        Text('Login',
+                        Text('wikiFoodia',
                             style: TextStyle(
-                                fontSize: 27, fontWeight: FontWeight.bold)),
+                                fontSize: 30, fontWeight: FontWeight.bold)),
                         SizedBox(
                           height: 30,
                         ),
@@ -61,7 +61,7 @@ class _LoginPageState extends State<LoginPage> {
                           isPasswordField: false,
                         ),
                         SizedBox(
-                          height: 30,
+                          height: 20,
                         ),
                         FormContainerWidget(
                           controller: _passwordController,
@@ -69,7 +69,7 @@ class _LoginPageState extends State<LoginPage> {
                           isPasswordField: true,
                         ),
                         SizedBox(
-                          height: 10,
+                          height: 30,
                         ),
                         GestureDetector(
                           onTap: _signIn,
