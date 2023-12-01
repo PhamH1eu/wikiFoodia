@@ -2,10 +2,8 @@ import 'dart:io';
 import 'package:tflite_v2/tflite_v2.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:wikifoodia/features/app/presentation/pages/search.dart';
 
 import '../../../../../const.dart';
-import '../../widgets/color_extension.dart';
 import 'fastSearch.dart';
 
 class DetectionFood extends StatefulWidget {
@@ -27,12 +25,12 @@ class _DetectionFood extends State<DetectionFood> {
     loadModel();
   }
   Future<void> loadModel() async {
-    String? res = await Tflite.loadModel(
+    await Tflite.loadModel(
       model: 'assets/tflite/model_unquant.tflite',
       labels: 'assets/tflite/labels.txt',
     );
-    print(res);
   }
+  
   void recognizeFood() async {
     if (imageFile != null) {
       var recognitions = await Tflite.runModelOnImage(
@@ -44,7 +42,6 @@ class _DetectionFood extends State<DetectionFood> {
       );
       setState(() {
         recognizedFood = recognitions![0]['label'];
-        print(recognitions);
       });
     }
   }
