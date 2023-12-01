@@ -11,9 +11,8 @@ class FlashMessage {
         behavior: SnackBarBehavior.floating,
         backgroundColor: Colors.transparent,
 
-        dismissDirection: DismissDirection.up,
         margin: EdgeInsets.only(
-          bottom: MediaQuery.of(context).size.height - 180,
+          bottom: MediaQuery.of(context).size.height*0.05,
           left: 10,
           right: 10,
         ),
