@@ -1,16 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:wikifoodia/features/app/presentation/pages/FavoritePage/food.dart';
-import 'package:wikifoodia/features/app/presentation/pages/StorePage/map.dart';
 import 'package:wikifoodia/features/app/presentation/pages/detection/detectionFood.dart';
 import 'package:wikifoodia/features/app/presentation/pages/search.dart';
+import 'package:wikifoodia/features/app/presentation/widgets/color_extension.dart';
 
-import '../widgets/category_cell.dart';
-import '../widgets/color_extension.dart';
-import '../widgets/popular_restaurant.dart';
-import '../widgets/recent_food.dart';
-import 'AuthPages/login_page.dart';
-import '../../../../const.dart';
+import '../AuthPages/login_page.dart';
+import '../../../../../const.dart';
+import 'category.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -172,9 +168,8 @@ class _MainPageState extends State<MainPage> {
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               child: IconButton(
-                                icon: Icon(Icons.filter_list),
+                                icon: Icon(Icons.camera_alt_rounded, color: TColor.primary,),
                                 onPressed: () {
-                                  // Xử lý sự kiện khi nhấn vào nút lọc
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
@@ -189,107 +184,7 @@ class _MainPageState extends State<MainPage> {
                       const SizedBox(
                         height: 12,
                       ),
-                      SizedBox(
-                        height: 120,
-                        child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          padding: const EdgeInsets.symmetric(horizontal: 15),
-                          itemCount: catArr.length,
-                          itemBuilder: ((context, index) {
-                            var cObj = catArr[index] as Map? ?? {};
-                            return CategoryCell(
-                                index: index,
-                                cObj: cObj,
-                                onTap: () {
-                                  indexSelected = index;
-                                  reload();
-                                  foodtype = cObj['type'];
-                                });
-                          }),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 8,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 30),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Popular Restaurant",
-                              style: TextStyle(
-                                  color: TColor.primaryText,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w800),
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 5,
-                      ),
-                      SizedBox(
-                        height: 200,
-                        child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          padding: const EdgeInsets.symmetric(horizontal: 15),
-                          itemCount: mostPopArr.length,
-                          itemBuilder: ((context, index) {
-                            var mObj = mostPopArr[index];
-                            return PopularCell(
-                              mObj: mObj,
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          MapStore(store: mObj)),
-                                );
-                              },
-                            );
-                          }),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 8,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 30),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Recent Foods",
-                              style: TextStyle(
-                                color: TColor.primaryText,
-                                fontSize: 20,
-                                fontWeight: FontWeight.w800,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 5,
-                      ),
-                      ListView.builder(
-                        physics: const NeverScrollableScrollPhysics(),
-                        shrinkWrap: true,
-                        padding: const EdgeInsets.symmetric(horizontal: 15),
-                        itemCount: recentArr.length,
-                        itemBuilder: ((context, index) {
-                          var rObj = recentArr[index];
-                          if (rObj.food_type.toString() == foodtype) {
-                            return RecentItemRow(
-                              rObj: rObj,
-                              onTap: () {},
-                            );
-                          } else {
-                            return SizedBox();
-                          }
-                        }),
-                      ),
+                      Category(),
                     ],
                   ),
                 ),

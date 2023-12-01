@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 import 'FavoritePage/favorites_page.dart';
-import 'detection/detectionFood.dart';
 import 'setting_page.dart';
-import 'main_page.dart';
+import 'MainPage/main_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

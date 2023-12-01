@@ -8,7 +8,7 @@ import 'features/app/presentation/pages/AuthPages/login_page.dart';
 import 'features/user_auth/firebase_auth_implementation/google_auth_services.dart';
 import 'features/app/presentation/pages/home_page.dart';
 import 'features/app/presentation/pages/AuthPages/sign_up_page.dart';
-import 'features/app/presentation/pages/main_page.dart';
+import 'features/app/presentation/pages/MainPage/main_page.dart';
 import 'features/app/splash_screen/splash_screen.dart';
 
 import 'firebase_options.dart';
