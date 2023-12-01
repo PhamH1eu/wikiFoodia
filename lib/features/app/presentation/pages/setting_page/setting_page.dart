@@ -114,43 +114,37 @@ class _SettingPageState extends State<SettingPage> {
               );
             },
             child: Container(
-              height: 45,
-              width: 100,
+              height: 50,
+              width: MediaQuery.of(context).size.width * 0.9,
+              margin: EdgeInsets.symmetric(horizontal: (MediaQuery.of(context).size.width * 0.1) / 2),
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: Color(0xfff97350),
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: Container(
-                height: 45,
-                width: 100,
-                decoration: BoxDecoration(
-                  color: Color(0xfff97350),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: TextButton(
-                  child: Center(
-                    child: Text(
-                      "Sign out",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                      ),
+              child: TextButton(
+                onPressed: () {
+                  provider.googleLogout();
+                  Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => LoginPage(),
+                    ),
+                        (route) => false,
+                  );
+                },
+                child: Center(
+                  child: Text(
+                    "Sign out",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
                     ),
                   ),
-                  onPressed: () {
-                    provider.googleLogout();
-                    Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => LoginPage(),
-                      ),
-                      (route) => false,
-                    );
-                  },
                 ),
               ),
             ),
+
           ),
         ],
       ),
