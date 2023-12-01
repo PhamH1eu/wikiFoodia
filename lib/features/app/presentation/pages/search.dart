@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/recent_food.dart';
-import '../../../../const.dart';
+import 'package:wikifoodia/const.dart';
 
 List recentArr = allFoods;
 List foundedArr = [];
@@ -17,7 +17,7 @@ class SearchPage extends StatefulWidget {
 class _SearchPage extends State<SearchPage> {
   @override
   void initState() {
-    foundedArr = widget.initialFoods;
+    recentArr = widget.initialFoods;
     super.initState();
   }
 

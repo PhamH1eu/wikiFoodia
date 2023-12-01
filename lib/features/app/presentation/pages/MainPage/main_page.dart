@@ -106,7 +106,7 @@ class _MainPageState extends State<MainPage> {
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 20),
                         child: Text(
-                          "What would you like to order",
+                          "What would you like to try today",
                           style: TextStyle(
                             color: Colors.black,
                             fontFamily: 'Trajan Pro',
