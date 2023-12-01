@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 import 'FavoritePage/favorites_page.dart';
-import 'setting_page.dart';
+import 'setting_page/setting_page.dart';
 import 'MainPage/main_page.dart';
 
 class HomePage extends StatefulWidget {

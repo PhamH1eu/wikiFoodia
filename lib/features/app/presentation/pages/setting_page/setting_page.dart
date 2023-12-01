@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:wikifoodia/features/app/presentation/pages/setting_page/terms_condition_page.dart';
 
-import '../../../user_auth/firebase_auth_implementation/google_auth_services.dart';
-import 'AuthPages/login_page.dart';
+import '../../../../user_auth/firebase_auth_implementation/google_auth_services.dart';
+import '../AuthPages/login_page.dart';
+import 'edit_profile_page.dart';
 
 class SettingPage extends StatefulWidget {
   const SettingPage({Key? key}) : super(key: key);
@@ -11,11 +13,18 @@ class SettingPage extends StatefulWidget {
   State<SettingPage> createState() => _SettingPageState();
 }
 
+void updateProfile(String newfName, String newlName) {
+  _SettingPageState()._fName = newfName;
+  _SettingPageState()._lName = newlName;
+  print(newfName);
+  // Notify listeners about the change
+}
+
 class _SettingPageState extends State<SettingPage> {
-  final String _name = "Hieu Dep Try";
-  final String _email = "@example.com";
-  final String _bio = "description about yourself go brrrr";
-  final String _imageUrl = "https://placehold.it/200x200";
+  String _email = "@example.com";
+  String _imageUrl = "assets/images/avatar.jpg";
+  String _fName = "Thiện";
+  String _lName = "Ma Thanh";
 
   @override
   Widget build(BuildContext context) {
@@ -24,69 +33,64 @@ class _SettingPageState extends State<SettingPage> {
     return Scaffold(
       body: ListView(
         children: [
-          ListTile(
-            leading: CircleAvatar(
-              radius: 30,
-              backgroundImage: NetworkImage(_imageUrl),
-            ),
-            title: Text(_name),
-            subtitle: Text(_email),
-          ),
-          Divider(
-            height: 20,
-          ),
-          ListTile(
-            title: Text("Bio"),
-            subtitle: Text(_bio),
-          ),
-          Divider(
-            height: 20,
-          ),
-          ListTile(
-            title: Text("Social Media"),
-            subtitle: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                IconButton(
-                  icon: Icon(Icons.facebook),
-                  onPressed: () {},
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => EditProfilePage(
+                    fname: _fName,
+                    lname: _lName,
+                    email: _email,
+                    imageUrl: _imageUrl,
+                  ),
                 ),
-              ],
+              );
+            },
+            child: Container(
+              child: ListTile(
+                leading: CircleAvatar(
+                  radius: 30,
+                  backgroundImage: NetworkImage(_imageUrl),
+                ),
+                title: Text(_fName + " " + _lName),
+                subtitle: Text(_email),
+              ),
             ),
           ),
-          Divider(
-            height: 20,
-          ),
-          ListTile(
-            title: Text("Edit Profile"),
-            leading: Icon(Icons.edit),
+          GestureDetector(
             onTap: () {
-              // TODO: Implement profile editing
+              // TODO: Implement action for "Rate us!"
             },
-          ),
-          Divider(),
-          ListTile(
-            title: Text("Rate us!"),
-            leading: Icon(Icons.star),
-            onTap: () {
-              // TODO: Implement
-            },
+            child: ListTile(
+              title: Text("Rate us!"),
+              leading: Icon(Icons.star),
+            ),
           ),
           Divider(),
-          ListTile(
-            title: Text("Help Center"),
-            leading: Icon(Icons.help_center),
+          GestureDetector(
             onTap: () {
-              // TODO: Implement
+              // TODO: Implement action for "Help Center"
             },
+            child: ListTile(
+              title: Text("Help Center"),
+              leading: Icon(Icons.help_center),
+            ),
           ),
           Divider(),
-          ListTile(
-            title: Text("Terms and Conditions"),
-            leading: Icon(Icons.info),
+          GestureDetector(
             onTap: () {
-              // TODO: Implement
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => TermsAndConditionsPage()
+                ),
+              );
             },
+            child: ListTile(
+              title: Text("Terms and Conditions"),
+              leading: Icon(Icons.info),
+            ),
           ),
           Divider(
             height: 50,
@@ -94,7 +98,7 @@ class _SettingPageState extends State<SettingPage> {
           ListTile(
             title: Text("Current version: 0.1"),
             onTap: () {
-
+              // TODO: Implement action for the version
             },
           ),
           Divider(),
@@ -106,7 +110,7 @@ class _SettingPageState extends State<SettingPage> {
                 MaterialPageRoute(
                   builder: (context) => LoginPage(),
                 ),
-                    (route) => false,
+                (route) => false,
               );
             },
             child: Container(
@@ -141,7 +145,7 @@ class _SettingPageState extends State<SettingPage> {
                       MaterialPageRoute(
                         builder: (context) => LoginPage(),
                       ),
-                          (route) => false,
+                      (route) => false,
                     );
                   },
                 ),
