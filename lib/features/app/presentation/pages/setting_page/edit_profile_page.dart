@@ -72,43 +72,38 @@ class _EditProfilePageState extends State<EditProfilePage> {
               decoration: InputDecoration(labelText: 'Last Name'),
             ),
             SizedBox(height: 32),
-            Container(
-                height: 45,
-                width: 100,
+            Center(
+              child: Container(
+                height: 50,
+                width: MediaQuery.of(context).size.width * 0.9,
+                margin: EdgeInsets.symmetric(horizontal: (MediaQuery.of(context).size.width * 0.1) / 2),
                 decoration: BoxDecoration(
-                  color: Colors.blue,
+                  color: Color(0xfff97350),
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: Container(
-                  height: 45,
-                  width: 100,
-                  decoration: BoxDecoration(
-                    color: Color(0xfff97350),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: TextButton(
-                    onPressed: () {
-                      _saveChanges();
-                      Navigator.of(context).pop();
-                      Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(
-                          builder: (context) => SettingPage(),
-                        ),
-                      );
-
-                    },
-                    child: Center(
-                      child: Text(
-                        "Save",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                        ),
+                child: TextButton(
+                  onPressed: () {
+                    _saveChanges();
+                    Navigator.of(context).pop();
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(
+                        builder: (context) => SettingPage(),
+                      ),
+                    );
+                  },
+                  child: Center(
+                    child: Text(
+                      "Save",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
                       ),
                     ),
                   ),
-                ))
+                ),
+              ),
+            )
           ],
         ),
       ),
