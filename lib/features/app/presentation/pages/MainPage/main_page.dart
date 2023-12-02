@@ -26,6 +26,7 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xfff5f5f5),
       body: StreamBuilder(
           stream: FirebaseAuth.instance.authStateChanges(),
           builder: (context, snapshot) {
@@ -126,45 +127,47 @@ class _MainPageState extends State<MainPage> {
                             Expanded(
                               child: Container(
                                 decoration: BoxDecoration(
-                                  color: Colors.grey[200],
+                                  color: Color(0xffeeeeee),
                                   borderRadius: BorderRadius.circular(10),
                                 ),
-                                child: TextField(
-                                  onTap: () {
-                                    primaryFocus!.unfocus();
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
+                                  child: TextField(
+                                    onTap: () {
+                                      primaryFocus!.unfocus();
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
                                           builder: (context) => SearchPage(
-                                                initialFoods: allFoods,
-                                              )),
-                                    );
-                                  },
-                                  decoration: InputDecoration(
-                                    hintText: "Find your food or restaurant...",
-                                    prefixIcon: Container(
-                                      alignment: Alignment.center,
-                                      width: 30,
-                                      child: Align(
+                                            initialFoods: allFoods,
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                    decoration: InputDecoration(
+                                      hintText: "Find your food or restaurant...",
+                                      prefixIcon: Container(
                                         alignment: Alignment.center,
-                                        child: Icon(
-                                          Icons.search,
-                                          color: Color(0xfff97350),
-                                          size: 30,
+                                        width: 30,
+                                        child: Align(
+                                          alignment: Alignment.center,
+                                          child: Icon(
+                                            Icons.search,
+                                            color: Color(0xfff97350),
+                                            size: 30,
+                                          ),
                                         ),
                                       ),
+                                      border: InputBorder.none,
+                                      contentPadding: EdgeInsets.only(top: 14), // căn giữa phần hintText theo chiều dọc
                                     ),
-                                    border: InputBorder.none,
                                   ),
-                                ),
                               ),
                             ),
                             SizedBox(width: 30),
                             Container(
-                              width: 40,
-                              height: 40,
+                              width: 50,
+                              height: 50,
                               decoration: BoxDecoration(
-                                color: Color(0xFFECEFF1),
+                                color: Colors.white,
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               child: IconButton(

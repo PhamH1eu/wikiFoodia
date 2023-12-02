@@ -21,8 +21,22 @@ class _CategoryCell extends State<CategoryCell> {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 8),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20), // Giá trị radius mong muốn
-        color: indexSelected == widget.index ? Colors.orange : Colors.grey[100],
+        borderRadius: BorderRadius.circular(20),
+        color: indexSelected == widget.index ? Colors.orange : Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.shade500,
+            spreadRadius: 1,
+            blurRadius: 5,
+            offset: Offset(3, 3),
+          ),
+          BoxShadow(
+            color: Colors.white10,
+            spreadRadius: 1,
+            blurRadius: 5,
+            offset: Offset(-3, -3),
+          ),
+        ]
       ),
       child: InkWell(
         onTap: widget.onTap,

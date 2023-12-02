@@ -21,26 +21,26 @@ class _CategoryPageState extends State<Category> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(
-          height: 120,
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            padding: const EdgeInsets.symmetric(horizontal: 15),
-            itemCount: catArr.length,
-            itemBuilder: ((context, index) {
-              var cObj = catArr[index] as Map? ?? {};
-              return CategoryCell(
-                  index: index,
-                  cObj: cObj,
-                  onTap: () {
-                    indexSelected = index;
-                    setState(() {
-                      foodtype = cObj['type'];
+          SizedBox(
+            height: 120,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              itemCount: catArr.length,
+              itemBuilder: ((context, index) {
+                var cObj = catArr[index] as Map? ?? {};
+                return CategoryCell(
+                    index: index,
+                    cObj: cObj,
+                    onTap: () {
+                      indexSelected = index;
+                      setState(() {
+                        foodtype = cObj['type'];
+                      });
                     });
-                  });
-            }),
+              }),
+            ),
           ),
-        ),
         const SizedBox(
           height: 8,
         ),

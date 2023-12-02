@@ -56,40 +56,54 @@ class _DetectionFood extends State<DetectionFood> {
         centerTitle: true,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(12.0),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          // mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            SizedBox(
+              height: 10,
+            ),
+            if(recognizedFood.isNotEmpty)
             TextButton(
               style: TextButton.styleFrom(
-                  textStyle: TextStyle(
-                      color: Colors.red,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w800)
+                textStyle: TextStyle(
+                  color: Colors.red,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w800,
+                ),
+                backgroundColor: Colors.lime.shade100,
+                elevation: 5, // Đặt độ nâng của BoxShadow là 5
               ),
-                onPressed: (){
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => FastSearch(
-                          initialFoods: allFoods,
-                          foodName: recognizedFood,
-                        )),
-                  );
-                },
-                child: Text(recognizedFood)),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => FastSearch(
+                      initialFoods: allFoods,
+                      foodName: recognizedFood,
+                    ),
+                  ),
+                );
+              },
+              child: Text(recognizedFood),
+            ),
+            if(recognizedFood.isEmpty)
+              SizedBox(height: 30),
+            SizedBox(
+              height: 12,
+            ),
             if(imageFile != null)
               Container(
                 width: 640,
                 height: 480,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  color: Colors.grey,
+                  color: Color(0xfff8f8f8),
                   image: DecorationImage(
                       image: FileImage(imageFile!),
                       fit: BoxFit.cover
                   ),
-                  border: Border.all(width: 8, color: Colors.black),
+                  border: Border.all(width: 5, color: Colors.black),
                   borderRadius: BorderRadius.circular(12.0),
                 ),
               )
@@ -99,8 +113,8 @@ class _DetectionFood extends State<DetectionFood> {
                 height: 480,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  color: Colors.grey,
-                  border: Border.all(width: 8, color: Colors.black12),
+                  color: Color(0xfff8f8f8),
+                  border: Border.all(width: 5, color: Colors.black12),
                   borderRadius: BorderRadius.circular(12.0),
                 ),
                 child: const Text('Image should appear here', style: TextStyle(fontSize: 26),),
@@ -112,15 +126,27 @@ class _DetectionFood extends State<DetectionFood> {
               children: [
                 Expanded(
                   child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xfff97350),
+                      ),
                       onPressed: ()=> getImage(source: ImageSource.camera),
-                      child: const Text('Capture Image', style: TextStyle(fontSize: 18))
+                      child: const Text('Capture Image', style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white, // màu chữ là màu trắng
+                      ) )
                   ),
                 ),
                 const SizedBox(width: 20,),
                 Expanded(
                   child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xfff97350),
+                      ),
                       onPressed: ()=> getImage(source: ImageSource.gallery),
-                      child: const Text('Select Image', style: TextStyle(fontSize: 18))
+                      child: const Text('Select Image', style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white, // màu chữ là màu trắng
+                      ))
                   ),
                 )
               ],

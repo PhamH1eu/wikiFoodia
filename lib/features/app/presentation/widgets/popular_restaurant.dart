@@ -11,6 +11,11 @@ class PopularCell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: Colors.white,
+          // radius là 10
+        ),
       margin: const EdgeInsets.symmetric(horizontal: 8),
       child: InkWell(
         onTap: onTap,
@@ -29,59 +34,59 @@ class PopularCell extends StatelessWidget {
             const SizedBox(
               height: 8,
             ),
-            Text(
-              mObj.name,
-              textAlign: TextAlign.center,
-              style: TextStyle(
+            Container(
+              padding: EdgeInsets.only(left: 5),
+              child: Text(
+                mObj.name,
+                textAlign: TextAlign.center,
+                style: TextStyle(
                   color: TColor.primaryText,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w700),
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
             ),
             const SizedBox(
               height: 4,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Text(
-                  mObj.type,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
+            Container(
+              padding: EdgeInsets.only(left: 3), // thêm lề bên trái là 3
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    mObj.type,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
                       color: TColor.secondaryText,
-                      fontSize: 12),
-                ),
-
-                Text(
-                  " . ",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: TColor.primary, fontSize: 12),
-                ),
-
-                Text(
-                  mObj.food_type,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: TColor.secondaryText, fontSize: 12),
-                ),
-
-                const SizedBox(
-                  width: 8,
-                ),
-
-                Image.asset(
-                  "assets/images/rate.png",
-                  width: 10,
-                  height: 10,
-                  fit: BoxFit.cover,
-                ) ,
-                const SizedBox(
-                  width: 4,
-                ),
-                Text(
-                  "4.6 (99+)",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: TColor.primary, fontSize: 12),
-                ),
-              ],
+                      fontSize: 12,
+                    ),
+                  ),
+                  Text(
+                    " . ",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(color: TColor.primary, fontSize: 12),
+                  ),
+                  Text(
+                    mObj.food_type,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(color: TColor.secondaryText, fontSize: 12),
+                  ),
+                  const SizedBox(width: 8),
+                  Image.asset(
+                    "assets/images/rate.png",
+                    width: 10,
+                    height: 10,
+                    fit: BoxFit.cover,
+                  ),
+                  const SizedBox(width: 4),
+                  Text(
+                    "4.6 (99+)",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(color: TColor.primary, fontSize: 12),
+                  ),
+                ],
+              ),
             ),
           ],
         ),

@@ -16,7 +16,12 @@ class RecentItemRow extends StatelessWidget {
     final provider = Provider.of<FavoriteProvider>(context);
 
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 8),
+        margin: const EdgeInsets.symmetric(vertical: 8),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        color: Colors.white,
+        // radius là 10
+      ),
       child: InkWell(
         onTap: () => Navigator.push(
             context,
