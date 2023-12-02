@@ -51,7 +51,8 @@ class _DetectionFood extends State<DetectionFood> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Capturing Images'),
+        title: const Text('Find by Image'),
+        backgroundColor: Color(0xfff97350),
         centerTitle: true,
       ),
       body: Padding(
