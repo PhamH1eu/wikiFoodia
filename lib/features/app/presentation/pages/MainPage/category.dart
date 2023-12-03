@@ -24,24 +24,26 @@ class _CategoryPageState extends State<Category> {
           SizedBox(
             height: 120,
             child: ListView.builder(
+              clipBehavior: Clip.none,
               scrollDirection: Axis.horizontal,
               padding: const EdgeInsets.symmetric(horizontal: 15),
               itemCount: catArr.length,
-              itemBuilder: ((context, index) {
+              itemBuilder: (context, index) {
                 var cObj = catArr[index] as Map? ?? {};
                 return CategoryCell(
-                    index: index,
-                    cObj: cObj,
-                    onTap: () {
-                      indexSelected = index;
-                      setState(() {
-                        foodtype = cObj['type'];
-                      });
+                  index: index,
+                  cObj: cObj,
+                  onTap: () {
+                    indexSelected = index;
+                    setState(() {
+                      foodtype = cObj['type'];
                     });
-              }),
-            ),
+                  },
+                );
+              },
+            )
           ),
-        const SizedBox(
+        SizedBox(
           height: 8,
         ),
         Padding(
