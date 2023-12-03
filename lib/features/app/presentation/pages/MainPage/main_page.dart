@@ -107,11 +107,11 @@ class _MainPageState extends State<MainPage> {
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 20),
                         child: Text(
-                          "What would you like to try today",
+                          "What would you like to try today?",
                           style: TextStyle(
                             color: Colors.black,
                             fontFamily: 'Trajan Pro',
-                            fontSize: 40,
+                            fontSize: 32,
                             fontWeight: FontWeight.w900,
                           ),
                           textAlign: TextAlign.left,
