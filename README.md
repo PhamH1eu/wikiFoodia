@@ -35,9 +35,9 @@ Chúng tôi sử dụng framework Flutter dựa trên Dart và xác thực ngư�
 ### Trang cá nhân người dùng
 
 ## Một số hình ảnh của ứng dụng
-<img alt="Flutter" src="./assets/readme/login.png">
-<img alt="Flutter" src="./assets/readme/homepage.png">
-<img alt="Flutter" src="./assets/readme/fav.png">
-<img alt="Flutter" src="./assets/readme/detail.png">
-<img alt="Flutter" src="./assets/readme/map.png">
-<img alt="Flutter" src="./assets/readme/detect.png">
+<img alt="Flutter" width="450" src="./assets/readme/login.png">
+<img alt="Flutter" width="450" src="./assets/readme/homepage.png">
+<img alt="Flutter" width="450" src="./assets/readme/fav.png">
+<img alt="Flutter" width="450" src="./assets/readme/detail.png">
+<img alt="Flutter" width="450" src="./assets/readme/map.png">
+<img alt="Flutter" width="450" src="./assets/readme/detect.png">
